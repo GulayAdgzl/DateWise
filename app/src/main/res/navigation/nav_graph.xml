@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/anasayfaFragment">
+
+
+    <fragment
+        android:id="@+id/anasayfaFragment"
+        tools:layout="@layout/fragment_anasayfa"
+        android:name="com.example.datewise.ui.anasayfa.AnasayfaFragment"
+        android:label="AnasayfaFragment" >
+        <action
+            android:id="@+id/action_anasayfaFragment_to_dayEkleFragment"
+            app:destination="@id/dayEkleFragment" />
+        <action
+            android:id="@+id/action_anasayfaFragment_to_dayGuncelleFragment"
+            app:destination="@id/dayGuncelleFragment" />
+        <action
+            android:id="@+id/action_anasayfaFragment_to_dayNotificationFragment"
+            app:destination="@id/dayNotificationFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/dayEkleFragment"
+        android:name="com.example.datewise.ui.dayEkle.DayEkleFragment"
+        android:label="fragment_day_ekle"
+        tools:layout="@layout/fragment_day_ekle" >
+        <action
+            android:id="@+id/action_dayEkleFragment_to_anasayfaFragment"
+            app:destination="@id/anasayfaFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/dayGuncelleFragment"
+        android:name="com.example.datewise.ui.dayGuncelle.dayGuncelleFragment"
+        android:label="fragment_day_guncelle"
+        tools:layout="@layout/fragment_day_guncelle" >
+        <action
+            android:id="@+id/action_dayGuncelleFragment_to_anasayfaFragment"
+            app:destination="@id/anasayfaFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/dayNotificationFragment"
+        android:name="com.example.datewise.ui.dayNotification.dayNotificationFragment"
+        android:label="fragment_day_notification"
+        tools:layout="@layout/fragment_day_notification" >
+        <action
+            android:id="@+id/action_dayNotificationFragment_to_anasayfaFragment"
+            app:destination="@id/anasayfaFragment" />
+    </fragment>
+</navigation>
