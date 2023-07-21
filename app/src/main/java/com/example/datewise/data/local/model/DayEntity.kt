@@ -11,13 +11,13 @@ import java.util.*
 data class DayEntity (
     @PrimaryKey(autoGenerate = true)
     @ColumnInfo(name = "id")
-    var id:Int=0,
+    val id:Int=0,
     @ColumnInfo(name = "day_image")
-    var image:String,
+    val image:String,
     @ColumnInfo(name = "day_name")
-    var name:String,
+    val name:String,
     @ColumnInfo(name = "day_dayName")
-    var dayname:String,
+    val dayname:String,
     @ColumnInfo(name = "day_date")
-    var daydate:Date
+    val daydate:Date?
     ):Serializable
