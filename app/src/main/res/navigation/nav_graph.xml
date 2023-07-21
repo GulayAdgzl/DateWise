@@ -38,6 +38,9 @@
         <action
             android:id="@+id/action_dayGuncelleFragment_to_anasayfaFragment"
             app:destination="@id/anasayfaFragment" />
+        <argument
+            android:name="day"
+            app:argType="com.example.datewise.data.local.model.DayModel" />
     </fragment>
     <fragment
         android:id="@+id/dayNotificationFragment"
