@@ -44,7 +44,7 @@
     </fragment>
     <fragment
         android:id="@+id/dayNotificationFragment"
-        android:name="com.example.datewise.ui.dayNotification.dayNotificationFragment"
+        android:name="com.example.datewise.ui.Reminder.dayNotificationFragment"
         android:label="fragment_day_notification"
         tools:layout="@layout/fragment_day_notification" >
         <action
