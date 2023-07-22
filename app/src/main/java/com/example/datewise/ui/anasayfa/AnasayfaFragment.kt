@@ -5,6 +5,8 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.fragment.findNavController
+import com.example.datewise.R
 import com.example.datewise.data.local.database.AppDatabase
 import com.example.datewise.data.local.model.DayEntity
 import com.example.datewise.databinding.FragmentAnasayfaBinding
@@ -36,13 +38,14 @@ class AnasayfaFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         tumDayleriGoster()
-        /*
+          
+
         binding.apply{
-        buttonYeniUrun.setOnclickListener{
-                      findNavController().navigate(R.id.anasayfaToUrunEkle)
-               }
+            buttonHatRlatC.setOnClickListener {
+                findNavController().navigate(R.id.anasayfatodayNotification)
+            }
         }
-        */
+
     }
 
     fun tumDayleriGoster(){

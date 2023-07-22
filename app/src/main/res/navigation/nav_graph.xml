@@ -18,7 +18,7 @@
             android:id="@+id/action_anasayfaFragment_to_dayGuncelleFragment"
             app:destination="@id/dayGuncelleFragment" />
         <action
-            android:id="@+id/action_anasayfaFragment_to_dayNotificationFragment"
+            android:id="@+id/anasayfatodayNotification"
             app:destination="@id/dayNotificationFragment" />
     </fragment>
     <fragment
@@ -44,9 +44,9 @@
     </fragment>
     <fragment
         android:id="@+id/dayNotificationFragment"
-        android:name="com.example.datewise.ui.Reminder.dayNotificationFragment"
+        android:name="com.example.datewise.ui.Reminder.fragment.ReminderFragment"
         android:label="fragment_day_notification"
-        tools:layout="@layout/fragment_day_notification" >
+        tools:layout="@layout/fragment_reminder" >
         <action
             android:id="@+id/action_dayNotificationFragment_to_anasayfaFragment"
             app:destination="@id/anasayfaFragment" />

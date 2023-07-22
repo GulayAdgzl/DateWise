@@ -1,20 +1,23 @@
 package com.example.datewise.ui.Reminder.adapter
 
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
+import android.widget.ListAdapter
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.datewise.R
+import com.example.datewise.databinding.ItemReminderBinding
 import com.example.datewise.ui.Reminder.data.ReminderModel
 import java.text.SimpleDateFormat
 import java.util.*
 
 class ReminderAdapter(private var reminderList:List<ReminderModel>):
-      RecyclerView.Adapter<ReminderAdapter.ReminderViewHolder>() {
+      RecyclerView.Adapter<ReminderAdapter.ReminderViewHolder>(){
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ReminderViewHolder {
-        val itemView = LayoutInflater.from(parent.context).inflate(R.layout.item_reminder, parent, false)
-        return ReminderViewHolder(itemView)
+        //val itemView = LayoutInflater.from(parent.context).inflate(R.layout.item_reminder, parent, false)
+
+        return ReminderViewHolder(ItemReminderBinding.inflate(LayoutInflater.from(parent.context),parent,false))
+    //ReminderViewHolder(itemView)
     }
 
     override fun onBindViewHolder(holder: ReminderViewHolder, position: Int) {
@@ -29,7 +32,9 @@ class ReminderAdapter(private var reminderList:List<ReminderModel>):
         notifyDataSetChanged()
     }
 
-    inner class ReminderViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+    class ReminderViewHolder(private val binding: ItemReminderBinding):RecyclerView.ViewHolder(binding.root)
+        /*itemView: ItemReminderBinding) :
+        RecyclerView.ViewHolder(itemView) */{
 
         fun bind(reminder: ReminderModel) {
             itemView.findViewById<TextView>(R.id.textViewReminderName).text = reminder.name

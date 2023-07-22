@@ -15,6 +15,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.datewise.R
 import com.example.datewise.databinding.FragmentReminderBinding
+import com.example.datewise.ui.Reminder.AlarmReceiver
 import com.example.datewise.ui.Reminder.ReminderViewModel
 import com.example.datewise.ui.Reminder.adapter.ReminderAdapter
 import com.example.datewise.ui.Reminder.data.ReminderModel
@@ -24,37 +25,56 @@ class ReminderFragment : Fragment() {
 
     private lateinit var binding:FragmentReminderBinding
     private lateinit var viewModel:ReminderViewModel
+    private val reminderList= mutableListOf<ReminderModel>()
     private lateinit var reminderAdapter:ReminderAdapter
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-       binding=DataBindingUtil.inflate(inflater,R.layout.fragment_reminder,container,false)
-        viewModel=ViewModelProvider(this).get(ReminderViewModel::class.java)
-
-        binding.viewModel=viewModel
-        binding.lifecycleOwner=this
+       binding=FragmentReminderBinding.inflate(inflater,container,false)
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        reminderAdapter= ReminderAdapter(emptyList())
-        binding.recyclerViewReminders.layoutManager=LinearLayoutManager(context)
-        binding.recyclerViewReminders.adapter=reminderAdapter
+
+        viewModel = ViewModelProvider(this).get(ReminderViewModel::class.java)
+
+        reminderAdapter = ReminderAdapter(emptyList()) // Başlangıçta boş liste ile adapter oluşturulur
+        binding.recyclerViewReminders.layoutManager = LinearLayoutManager(context)
+        binding.recyclerViewReminders.adapter = reminderAdapter
+
+        binding.viewModel=viewModel
+        binding.lifecycleOwner=this
+
+        // ViewModel'deki hatırlatma listesini gözlemleyerek RecyclerView'ı günceller
+        viewModel.reminderList.observe(viewLifecycleOwner, Observer { reminders ->
+            reminderAdapter.updateData(reminders)
+        })
 
         binding.buttonAddReminder.setOnClickListener {
-            val reminderName=binding.editTextReminderName.text.toString()
-            if(reminderName.isNotEmpty()){
-                val reminder=ReminderModel(System.currentTimeMillis(),reminderName,System.currentTimeMillis())
+            val reminderName = binding.editTextReminderName.text.toString()
+            if (reminderName.isNotEmpty()) {
+                val reminder = ReminderModel(System.currentTimeMillis(), reminderName, System.currentTimeMillis())
                 viewModel.addReminder(reminder)
             }
         }
         viewModel.reminderList.observe(viewLifecycleOwner, Observer{ reminders ->
             reminderAdapter.updateData(reminders)
         })
+    }
+    fun onAddReminderClick(view:View) {
+        val reminderName = binding.editTextReminderName.text.toString()
+        if (reminderName.isNotEmpty()) {
+            val reminder = ReminderModel(System.currentTimeMillis(), reminderName, System.currentTimeMillis())
+            viewModel.addReminder(reminder)
+
+            // Hatırlatmayı AlarmManager ile ayarla
+            setAlarm(reminder)
+        }
+
     }
     private fun setAlarm(reminder: ReminderModel) {
         val alarmManager = requireContext().getSystemService(Context.ALARM_SERVICE) as AlarmManager
@@ -73,5 +93,6 @@ class ReminderFragment : Fragment() {
             reminder.timestamp,
             pendingIntent
         )
+    }
 
 }
