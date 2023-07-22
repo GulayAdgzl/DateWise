@@ -8,7 +8,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.datewise.R
 import com.example.datewise.ui.Reminder.data.ReminderModel
 
-class ReminderAdapter(private val reminderList:List<ReminderModel>):
+class ReminderAdapter(private var reminderList:List<ReminderModel>):
       RecyclerView.Adapter<ReminderAdapter.ReminderViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ReminderViewHolder {
         val itemView = LayoutInflater.from(parent.context).inflate(R.layout.item_reminder, parent, false)
@@ -22,7 +22,12 @@ class ReminderAdapter(private val reminderList:List<ReminderModel>):
 
     override fun getItemCount() = reminderList.size
 
-    class ReminderViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+    fun updateData(newReminderList: List<ReminderModel>) {
+        reminderList = newReminderList
+        notifyDataSetChanged()
+    }
+
+    inner class ReminderViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
         fun bind(reminder: ReminderModel) {
             val textViewReminderName = itemView.findViewById<TextView>(R.id.textViewReminderName)
