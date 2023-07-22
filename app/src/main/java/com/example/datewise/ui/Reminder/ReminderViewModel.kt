@@ -6,16 +6,14 @@ import androidx.lifecycle.ViewModel
 import com.example.datewise.ui.Reminder.data.ReminderModel
 
 class ReminderViewModel: ViewModel() {
-    private val _reminders= MutableLiveData<List<ReminderModel>>()
-    val reminder:LiveData<List<ReminderModel>>
-       get()=_reminders
 
-    //Verileri ViewModel içinde yönetebilirsiniz
-    private val reminderList= mutableListOf<ReminderModel>()
+    private val _reminderList=MutableLiveData<List<ReminderModel>>()
+    val reminderList:LiveData<List<ReminderModel>> get()=_reminderList
 
-    //Hatırlatıcı eklemek için bir fonksiyon
+    init {
+        _reminderList.value= emptyList()
+    }
     fun addReminder(reminder:ReminderModel){
-        reminderList.add(reminder)
-        _reminders.value=reminderList
+        _reminderList.value=_reminderList.value?.plus(reminder)
     }
 }
