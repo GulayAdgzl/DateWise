@@ -13,7 +13,6 @@ import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import com.example.datewise.R
 import com.example.datewise.databinding.FragmentReminderBinding
 import com.example.datewise.ui.Reminder.ReminderViewModel
@@ -71,7 +70,7 @@ class ReminderFragment : Fragment() {
 
         alarmManager.setExact(
             AlarmManager.RTC_WAKEUP,
-            reminder.date,
+            reminder.timestamp,
             pendingIntent
         )
 

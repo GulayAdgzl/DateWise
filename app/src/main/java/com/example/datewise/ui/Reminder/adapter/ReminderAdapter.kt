@@ -7,6 +7,8 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.datewise.R
 import com.example.datewise.ui.Reminder.data.ReminderModel
+import java.text.SimpleDateFormat
+import java.util.*
 
 class ReminderAdapter(private var reminderList:List<ReminderModel>):
       RecyclerView.Adapter<ReminderAdapter.ReminderViewHolder>() {
@@ -30,8 +32,13 @@ class ReminderAdapter(private var reminderList:List<ReminderModel>):
     inner class ReminderViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
         fun bind(reminder: ReminderModel) {
-            val textViewReminderName = itemView.findViewById<TextView>(R.id.textViewReminderName)
-            textViewReminderName.text = reminder.name
+            itemView.findViewById<TextView>(R.id.textViewReminderName).text = reminder.name
+
+            // Unix zamanını okunabilir bir şekilde biçimlendirme örneği:
+            val reminderTime = SimpleDateFormat("dd/MM/yyyy HH:mm", Locale.getDefault())
+                .format(Date(reminder.timestamp))
+            itemView.findViewById<TextView>(R.id.textViewReminderTime).text = reminderTime
+
         }
     }
 }
