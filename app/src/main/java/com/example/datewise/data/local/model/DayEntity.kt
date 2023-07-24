@@ -9,9 +9,9 @@ import java.util.*
 
 @Entity(tableName = "days_table")
 data class DayEntity (
-    @PrimaryKey(autoGenerate = true)
-    @ColumnInfo(name = "id")
-    val id:Int=0,
+    @PrimaryKey(autoGenerate = true) val id: Long = 0,
+   // @ColumnInfo(name = "id")
+    //val id:Int=0,
     @ColumnInfo(name = "day_image")
     val image:String,
     @ColumnInfo(name = "day_name")
@@ -19,5 +19,5 @@ data class DayEntity (
     @ColumnInfo(name = "day_dayName")
     val dayname:String,
     @ColumnInfo(name = "day_date")
-    val daydate:Date?
+    val dayDate: Date
     ):Serializable

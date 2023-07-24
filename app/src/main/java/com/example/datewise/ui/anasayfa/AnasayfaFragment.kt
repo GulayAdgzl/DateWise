@@ -5,11 +5,13 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.example.datewise.R
 import com.example.datewise.data.local.adapter.DayAdapter
 import com.example.datewise.data.local.database.AppDatabase
@@ -29,11 +31,20 @@ class AnasayfaFragment : Fragment() {
     private lateinit var dayViewModel: DayViewModel
     private lateinit var adapter: DayAdapter
 
+    private lateinit var horizontalRecyclerView: RecyclerView
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         binding=DataBindingUtil.inflate(inflater,R.layout.fragment_anasayfa,container,false)
+
+        //ImageView
+
+           binding.profil.setBackgroundColor(R.drawable.round_image_view)
+
+
+
 
         val application= requireNotNull(this.activity).application
         val dataSource=AppDatabase.getAppDatabase(application)?.dayDao
@@ -63,7 +74,7 @@ class AnasayfaFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        tumDayleriGoster()
+        //tumDayleriGoster()
 
 
        binding.textMonth.text=dayViewModel.getBugununAyı()
@@ -77,7 +88,7 @@ class AnasayfaFragment : Fragment() {
 
     }
 
-    fun tumDayleriGoster(){
+    /*fun tumDayleriGoster(){
         dayViewModel.dayList.observe(viewLifecycleOwner){ daysList ->
             dayList=daysList
             binding.apply {
@@ -90,9 +101,9 @@ class AnasayfaFragment : Fragment() {
 
                 }
             }
-        }
+        }*/
 
     }
 
 
-}
+
