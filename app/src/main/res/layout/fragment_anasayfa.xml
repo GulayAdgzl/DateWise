@@ -6,6 +6,9 @@
         <variable
             name="adapter"
             type="com.example.datewise.data.local.adapter.DayAdapter" />
+        <variable
+            name="viewModel"
+            type="com.example.datewise.ui.viewmodel.DayViewModel" />
     </data>
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -45,7 +48,7 @@
             android:id="@+id/textMonth"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="xxxx"
+            android:text="@{viewModel.getBugununAyı()}"
             android:textColor="@color/white"
             android:textSize="20sp"
             android:textStyle="bold"

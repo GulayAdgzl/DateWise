@@ -7,6 +7,8 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.datewise.data.local.model.DayEntity
 import com.example.datewise.databinding.ItemCardBinding
 import com.example.datewise.ui.anasayfa.AnasayfaFragmentDirections
+import java.text.SimpleDateFormat
+import java.util.*
 
 class DayAdapter(private var dayList:List<DayEntity?>):
     RecyclerView.Adapter<DayAdapter.CardHolder>() {
@@ -25,6 +27,7 @@ class DayAdapter(private var dayList:List<DayEntity?>):
             today?.let{
                 textViewTarih.text=today.daydate.toString()
                 textViewYazi.text=today.dayname
+
             }
             itemCard.setOnClickListener { button ->
                 today?.let {
@@ -37,5 +40,14 @@ class DayAdapter(private var dayList:List<DayEntity?>):
         }
     }
 
+
     override fun getItemCount() = dayList.size
+
+    // Bugünün ayını döndüren metot
+    private fun getBugununAyı(): String? {
+        val calendar: Calendar = Calendar.getInstance()
+        val dateFormat =
+            SimpleDateFormat("MMMM", Locale("tr")) // Türkçe ay adı için "MMMM" formatı kullanılıyor
+        return dateFormat.format(calendar.getTime())
+    }
 }

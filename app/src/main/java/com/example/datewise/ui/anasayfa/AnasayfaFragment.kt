@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
+import androidx.fragment.app.viewModels
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
@@ -17,6 +18,8 @@ import com.example.datewise.databinding.FragmentAnasayfaBinding
 import com.example.datewise.ui.viewmodel.DayViewModel
 import com.example.datewise.ui.viewmodel.DayViewModelFactory
 import com.google.android.material.snackbar.Snackbar
+import java.text.SimpleDateFormat
+import java.util.*
 
 
 class AnasayfaFragment : Fragment() {
@@ -39,8 +42,9 @@ class AnasayfaFragment : Fragment() {
         dayViewModel=viewModelFactory?.let {
             ViewModelProvider(this,it).get(DayViewModel::class.java)
         }!!
-        dayViewModel.dayList.observe(viewLifecycleOwner){dayList ->
-            dayList=dayList
+        dayViewModel.dayList.observe(viewLifecycleOwner){daysList ->
+            //dayList=dayList
+            dayList=daysList
             adapter= DayAdapter(dayList)
             binding.adapter=adapter
         }
@@ -60,6 +64,9 @@ class AnasayfaFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         tumDayleriGoster()
+
+
+       binding.textMonth.text=dayViewModel.getBugununAyı()
           
 
        binding.apply{
@@ -71,8 +78,8 @@ class AnasayfaFragment : Fragment() {
     }
 
     fun tumDayleriGoster(){
-        dayViewModel.dayList.observe(viewLifecycleOwner){ dayList ->
-            dayList=dayList
+        dayViewModel.dayList.observe(viewLifecycleOwner){ daysList ->
+            dayList=daysList
             binding.apply {
                 if(dayList.isEmpty()){
                     Snackbar.make(requireView(),"Etkinlik Bulunamadı",1000).show()
@@ -86,5 +93,6 @@ class AnasayfaFragment : Fragment() {
         }
 
     }
+
 
 }
