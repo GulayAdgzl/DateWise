@@ -4,6 +4,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import androidx.recyclerview.widget.GridLayoutManager
 import com.example.datewise.data.local.adapter.DayAdapter
 import com.example.datewise.data.local.model.DayEntity
 import com.google.android.material.snackbar.Snackbar
@@ -18,20 +19,18 @@ class AnasayfaViewModel:ViewModel() {
     init {
         getTumDayleriGoster()
     }
-    private  fun tumDayleriGoster(){
-        viewModelScope.launch{
+    private  fun getTumDayleriGoster(){
 
-            try {
-                _days.value=DayAdapter(_days)
-            }
-            /*if(days.isEmpty()){
+
+
+            if(days.isEmpty()){
                 Snackbar.make(requireView(),"Etkinlik Bulunamadı",1000).show()
             }else{
-                //val dayAdapter=DayAdapter(dayList)
-                //rvDay.adapter=dayAdapter
-                //rvDay.layoutManager=GridLayoutManager(context,2)
-                //rvDay.setHasFixedSize(true)
-            }*/
-        }
+                val dayAdapter=DayAdapter(dayList)
+                rvDay.adapter=dayAdapter
+                rvDay.layoutManager= GridLayoutManager(context,2)
+                rvDay.setHasFixedSize(true)
+            }
+
     }
 }

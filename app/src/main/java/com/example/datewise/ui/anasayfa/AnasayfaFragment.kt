@@ -40,9 +40,9 @@ class AnasayfaFragment : Fragment() {
         tumDayleriGoster()
           
 
-        binding.apply{
+       binding.apply{
             buttonHatRlatC.setOnClickListener {
-                findNavController().navigate(R.id.anasayfatodayNotification)
+                findNavController().navigate(R.id.action_anasayfaFragment_to_dayEkleFragment)
             }
         }
 
