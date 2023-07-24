@@ -3,6 +3,7 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/hkn/AndroidStudioProjects/DateWise/app/src/main/res/drawable/ic_launcher_background.xml" value="0.199" />
         <entry key="..\:/Users/hkn/AndroidStudioProjects/DateWise/app/src/main/res/drawable/top_background_gradiunt.xml" value="0.14" />
         <entry key="..\:/Users/hkn/AndroidStudioProjects/DateWise/app/src/main/res/layout/activity_main.xml" value="0.22826086956521738" />
         <entry key="..\:/Users/hkn/AndroidStudioProjects/DateWise/app/src/main/res/layout/alarm_notification.xml" value="0.1" />
