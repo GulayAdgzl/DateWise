@@ -34,7 +34,6 @@
             app:layout_constraintTop_toTopOf="parent" />
 
 
-
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="414dp"
             android:layout_height="124dp"
@@ -57,7 +56,7 @@
                 app:srcCompat="@drawable/tick" />
 
             <ImageView
-                android:id="@+id/imageView7"
+                android:id="@+id/btnClose"
                 android:layout_width="69dp"
                 android:layout_height="48dp"
                 app:layout_constraintBottom_toBottomOf="parent"

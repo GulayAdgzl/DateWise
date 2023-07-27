@@ -14,6 +14,7 @@ import com.example.datewise.data.local.model.DayModel
 import com.example.datewise.databinding.FragmentDayEkleBinding
 import com.example.datewise.ui.viewmodel.DayViewModel
 import com.example.datewise.ui.viewmodel.DayViewModelFactory
+import com.google.android.material.snackbar.Snackbar
 
 
 class DayEkleFragment : Fragment() {
@@ -62,6 +63,27 @@ class DayEkleFragment : Fragment() {
                     )
                 )
                 findNavController().navigate(R.id.action_dayEkleFragment_to_anasayfaFragment)
+            }
+            //Kapatma butonu-silme
+            btnClose.setOnClickListener {
+                val day=editTextName.text.toString()
+                val dayName=editTextDayName.text.toString()
+                if(day.isEmpty()  && dayName.isEmpty()){
+                    // İkisi de boş ise "Boş" Snackbar mesajı göster
+                    Snackbar.make(requireView(),"Girilmedi",1000).show()
+                    findNavController().navigate(R.id.action_dayEkleFragment_to_anasayfaFragment)
+                }else{
+                    Snackbar.make(requireView(),"Silindi ",1000).show()
+                    dayViewModel.silday(
+                        DayModel(
+                            name = day,
+                            dayname = dayName
+
+                        )
+                    )
+                    findNavController().navigate(R.id.action_dayEkleFragment_to_anasayfaFragment)
+                }
+
             }
         }
     }
