@@ -6,17 +6,15 @@ import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
-import com.example.datewise.data.local.Convertes
 import com.example.datewise.data.local.dao.DayDAO
-import com.example.datewise.data.local.model.DayEntity
-import com.example.datewise.data.local.model.MyItem
+import com.example.datewise.data.local.model.DayModel
 
 import kotlinx.coroutines.launch
 import java.text.SimpleDateFormat
 import java.util.*
 
 class DayViewModel (val db: DayDAO, application: Application):AndroidViewModel(application){
-    var dayList=MutableLiveData<List<DayEntity>>()
+    var dayList=MutableLiveData<List<DayModel>>()
 
     init {
         getTumToday()
@@ -24,32 +22,32 @@ class DayViewModel (val db: DayDAO, application: Application):AndroidViewModel(a
 
     private fun getTumToday(){
         viewModelScope.launch {
-            dayList.value=db.tumDay()
+            dayList.value=db.tumday()
         }
     }
     // Bugünün ayını döndüren metot
-     fun getBugununAyı(): String {
+     /*fun getBugununAyı(): String {
         val calendar = Calendar.getInstance()
         val dateFormat = SimpleDateFormat("MMMM", Locale("tr")) // Türkçe ay adı için "MMMM" formatı kullanılıyor
         return dateFormat.format(calendar.time)
-    }
+    }*/
 
 
 
-    fun ekletoday(today:DayEntity){
+    fun ekleday(day:DayModel){
         viewModelScope.launch {
-            db.dayEkle(today)
+            db.dayEkle(day)
         }
     }
-    fun guncelleToday(today: DayEntity) {
+    fun guncelleday(day: DayModel) {
         viewModelScope.launch {
-            db.dayGuncelle(today)
+            db.dayguncelle(day)
         }
     }
 
-    fun silToday(today:DayEntity){
+    fun silday(day:DayModel){
         viewModelScope.launch {
-            db.daySil(today)
+            db.daysil(day)
         }
     }
 

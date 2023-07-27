@@ -6,9 +6,6 @@
         <variable
             name="adapter"
             type="com.example.datewise.data.local.adapter.DayAdapter" />
-        <variable
-            name="viewModel"
-            type="com.example.datewise.ui.viewmodel.DayViewModel" />
     </data>
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -48,7 +45,7 @@
             android:id="@+id/textMonth"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@{viewModel.getBugununAyı()}"
+            android:text="xxxx"
             android:textColor="@color/white"
             android:textSize="20sp"
             android:textStyle="bold"
@@ -76,31 +73,12 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent">
 
-                <LinearLayout
+
+                <androidx.recyclerview.widget.RecyclerView
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:background="@drawable/background"
-                    android:layout_margin="16dp"
-                    android:orientation="horizontal">
-
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_margin="8dp"
-                        android:layout_height="match_parent"
-                        android:orientation="vertical">
-                        <ImageView
-
-                            android:id="@+id/profil"
-                            android:drawable="@drawable/round_image_view"
-                            android:layout_width="50dp"
-                            android:layout_height="wrap_content"
-                            tools:srcCompat="@tools:sample/avatars" />
-
-
-                    </LinearLayout>
-
-                </LinearLayout>
+                    android:id="@+id/rvday"
+                    android:adapter="@{adapter}"
+                    android:layout_height="wrap_content" />
             </ScrollView>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
@@ -109,5 +87,4 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </layout>
-
 

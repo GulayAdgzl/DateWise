@@ -14,9 +14,7 @@
         <action
             android:id="@+id/action_anasayfaFragment_to_dayEkleFragment"
             app:destination="@id/dayEkleFragment" />
-        <action
-            android:id="@+id/action_anasayfaFragment_to_dayGuncelleFragment"
-            app:destination="@id/dayGuncelleFragment" />
+
 
     </fragment>
     <fragment
@@ -27,18 +25,10 @@
         <action
             android:id="@+id/action_dayEkleFragment_to_anasayfaFragment"
             app:destination="@id/anasayfaFragment" />
-    </fragment>
-    <fragment
-        android:id="@+id/dayGuncelleFragment"
-        android:name="com.example.datewise.ui.dayGuncelle.dayGuncelleFragment"
-        android:label="fragment_day_guncelle"
-        tools:layout="@layout/fragment_day_guncelle" >
-        <action
-            android:id="@+id/action_dayGuncelleFragment_to_anasayfaFragment"
-            app:destination="@id/anasayfaFragment" />
         <argument
             android:name="day"
             app:argType="com.example.datewise.data.local.model.DayModel" />
     </fragment>
+
 
 </navigation>

@@ -10,7 +10,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.example.datewise.R
 import com.example.datewise.data.local.database.AppDatabase
-import com.example.datewise.data.local.model.DayEntity
+import com.example.datewise.data.local.model.DayModel
 import com.example.datewise.databinding.FragmentDayEkleBinding
 import com.example.datewise.ui.viewmodel.DayViewModel
 import com.example.datewise.ui.viewmodel.DayViewModelFactory
@@ -51,12 +51,13 @@ class DayEkleFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         binding.apply {
             btnEkle.setOnClickListener{
+                val day=editTextName.text.toString()
                 val dayName=editTextDayName.text.toString()
-                val dayDate=editSelectDate.text.toString()
+                //val image=imageView.setImageDrawable()
                 dayViewModel.ekleday(
-                    DayEntity(
-                        dayname=dayName,
-                        daydate=dayName,
+                    DayModel(
+                        name=day,
+                        dayname = dayName,
 
                     )
                 )

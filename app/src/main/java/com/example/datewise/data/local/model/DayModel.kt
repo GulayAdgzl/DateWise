@@ -8,16 +8,16 @@ import java.util.*
 
 
 @Entity(tableName = "days_table")
-data class DayEntity (
-    @PrimaryKey(autoGenerate = true) val id: Long = 0,
-   // @ColumnInfo(name = "id")
-    //val id:Int=0,
-    @ColumnInfo(name = "day_image")
-    val image:String,
+data class DayModel (
+    @PrimaryKey(autoGenerate = true)
+    @ColumnInfo(name = "id")
+    val id:Int=0,
+    //@ColumnInfo(name = "day_image")
+    //val image:String,
     @ColumnInfo(name = "day_name")
     val name:String,
     @ColumnInfo(name = "day_dayName")
     val dayname:String,
-    @ColumnInfo(name = "day_date")
-    val dayDate: Date
+    //@ColumnInfo(name = "day_date")
+    //val dayDate: String
     ):Serializable

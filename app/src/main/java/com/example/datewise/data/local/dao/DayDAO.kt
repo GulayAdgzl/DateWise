@@ -1,33 +1,24 @@
 package com.example.datewise.data.local.dao
 
 import androidx.room.*
-import com.example.datewise.data.local.model.DayEntity
+import com.example.datewise.data.local.model.DayModel
 import java.util.*
 
 @Dao
 interface DayDAO {
     @Insert
-    suspend fun dayEkle(day:DayEntity)
+     suspend fun dayEkle(day:DayModel)
 
     @Update
-    suspend fun dayGuncelle(day:DayEntity)
+   suspend fun dayguncelle(day:DayModel)
 
     @Delete
-    suspend fun daySil(day: DayEntity)
+    suspend fun daysil(day: DayModel)
 
     @Query("SELECT * FROM  days_table")
-    fun tumDay():List<DayEntity>
+    suspend fun tumday():List<DayModel>
 
-    @Query("SELECT * FROM days_table WHERE  id=key")
-    suspend fun dayGetir(key:Int):DayEntity?
-
-    @Query("SELECT * FROM days_table WHERE  dayDate BETWEEN :startDate AND :endDate")
-    suspend fun fetchBy(startDate: Date, endDate: Date): List<DayEntity>
-
-    @Query("SELECT AVG(value) as average FROM day where dayDate BETWEEN :startDay AND :endDay ORDER BY timestamp ASC")
-    suspend fun getAverageByDateRange(
-        startDay: Date,
-        endDay: Date
-    ): Float?
+    @Query("SELECT * FROM days_table WHERE  id = :key")
+     suspend fun daygetir(key:Int):DayModel?
 
 }
