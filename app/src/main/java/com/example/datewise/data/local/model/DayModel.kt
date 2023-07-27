@@ -11,7 +11,7 @@ import java.util.*
 data class DayModel (
     @PrimaryKey(autoGenerate = true)
     @ColumnInfo(name = "id")
-   // val id:Int=0,
+    val id:Int=0,
     //@ColumnInfo(name = "day_image")
     //val image:String,
     @ColumnInfo(name = "day_name")
