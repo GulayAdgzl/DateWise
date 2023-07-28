@@ -5,6 +5,7 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
+        android:background="@drawable/top_background_gradiunt"
         android:layout_height="match_parent"
         tools:context=".ui.dayEkle.DayEkleFragment">
 
