@@ -50,6 +50,8 @@ class AnasayfaFragment : Fragment() {
         dayViewModel.dayList.observe(viewLifecycleOwner){daysList ->
             dayList=daysList
             adapter= DayAdapter(dayList)
+            //diften sonra
+            adapter.submitList(dayList)
             binding.adapter=adapter
         }
         binding.lifecycleOwner=this
@@ -62,6 +64,7 @@ class AnasayfaFragment : Fragment() {
         //DB getir
         dayDB = AppDatabase.getAppDatabase(requireContext())!!
         //dayList = dayDB.dayDao.tumday()
+
 
     }
 
