@@ -13,9 +13,10 @@ abstract class AppDatabase:RoomDatabase() {
     companion object {
 
         @Volatile
-        private var INSTANCE:AppDatabase?=null
+        private var  INSTANCE:AppDatabase?=null
 
-        fun getAppDatabase(context: Context):AppDatabase?{
+        fun getAppDatabase(context: Context): AppDatabase?
+        {
             //singelton
             synchronized(this){
                 var instance= INSTANCE

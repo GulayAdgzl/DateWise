@@ -9,6 +9,7 @@ import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.datewise.R
 import com.example.datewise.data.local.adapter.DayAdapter
 import com.example.datewise.data.local.database.AppDatabase
@@ -94,7 +95,9 @@ class AnasayfaFragment : Fragment() {
                 } else {
                    // val dayAdapter=DayAdapter(dayList)
                     //rvday.adapter=dayAdapter
-                    rvday.layoutManager = GridLayoutManager(context, 2)
+                    rvday.layoutManager = LinearLayoutManager(context,LinearLayoutManager.HORIZONTAL,false)
+                    //(this@AnasayfaFragment,LinearLayoutManager.HORIZONTAL,false)
+                        //GridLayoutManager(context, 2)
                     rvday.setHasFixedSize(true)
 
                 }
