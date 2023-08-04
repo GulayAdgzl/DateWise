@@ -5,10 +5,12 @@
 
     <androidx.cardview.widget.CardView
         android:id="@+id/itemCard"
+        android:foreground="@drawable/effect"
+        android:clickable="true"
         android:layout_width="106dp"
         android:layout_height="wrap_content"
         android:layout_margin="20dp"
-        app:cardCornerRadius="30dp"
+        app:cardCornerRadius="50dp"
         app:cardElevation="5dp">
 
         <androidx.constraintlayout.widget.ConstraintLayout
