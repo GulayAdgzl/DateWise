@@ -4,10 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <androidx.cardview.widget.CardView
-
         android:id="@+id/itemCard"
         android:layout_width="106dp"
-
         android:layout_height="wrap_content"
         android:layout_margin="20dp"
         app:cardCornerRadius="30dp"

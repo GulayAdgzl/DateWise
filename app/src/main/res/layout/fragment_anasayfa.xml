@@ -25,7 +25,7 @@
             app:layout_constraintHorizontal_bias="0.98"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.615" />
+            app:layout_constraintVertical_bias="1.0" />
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/buttonHatırlatıcı"
@@ -38,7 +38,7 @@
             app:layout_constraintHorizontal_bias="0.047"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.615"
+            app:layout_constraintVertical_bias="1.0"
             app:srcCompat="@drawable/bell" />
 
         <TextView
@@ -51,23 +51,22 @@
             android:textStyle="bold"
             app:layout_constraintBottom_toTopOf="@+id/constraintLayout"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.509"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.509" />
+            app:layout_constraintVertical_bias="1.0" />
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/constraintLayout"
             android:layout_width="409dp"
-            android:layout_height="650dp"
+            android:layout_height="599dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent">
 
             <ScrollView
                 android:id="@+id/scrollView"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_width="416dp"
+                android:layout_height="591dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -75,11 +74,11 @@
 
 
                 <androidx.recyclerview.widget.RecyclerView
-                    android:layout_width="match_parent"
                     android:id="@+id/rvday"
-                    tools:listitem="@layout/item_card"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
                     android:adapter="@{adapter}"
-                    android:layout_height="wrap_content" />
+                    tools:listitem="@layout/item_card" />
             </ScrollView>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
