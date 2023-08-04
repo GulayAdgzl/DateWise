@@ -21,4 +21,8 @@ interface DayDAO {
     @Query("SELECT * FROM days_table WHERE  id = :key")
      suspend fun daygetir(key:Int):DayModel?
 
+
+
+
+
 }

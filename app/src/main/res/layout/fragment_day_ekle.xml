@@ -10,15 +10,30 @@
         tools:context=".ui.dayEkle.DayEkleFragment">
 
 
+        <ImageView
+            android:id="@+id/profilePhotoImageView"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:scaleType="centerCrop"
+            android:clickable="true"
+            android:focusable="true"
+            android:onClick="onProfilePhotoClick"
+            android:src="@drawable/user"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/constraintLayout3"
+            app:layout_constraintVertical_bias="0.065" />
+
         <EditText
             android:id="@+id/editTextName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="224dp"
-            android:layout_marginEnd="76dp"
+            android:layout_marginTop="288dp"
+            android:layout_marginEnd="100dp"
             android:ems="10"
-            android:inputType="textPersonName"
             android:hint="Name"
+            android:inputType="textPersonName"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -26,16 +41,16 @@
             android:id="@+id/editTextDayName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="280dp"
-            android:layout_marginEnd="84dp"
+            android:layout_marginTop="360dp"
+            android:layout_marginEnd="100dp"
             android:ems="10"
-            android:inputType="textPersonName"
             android:hint="Name"
+            android:inputType="textPersonName"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-
         <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraintLayout3"
             android:layout_width="414dp"
             android:layout_height="124dp"
             app:layout_constraintBottom_toBottomOf="parent"

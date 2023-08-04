@@ -1,11 +1,18 @@
 package com.example.datewise.ui.dayEkle
 
+import android.app.Activity
+import android.content.Intent
+import android.graphics.Bitmap
+import android.graphics.BitmapFactory
 import android.os.Bundle
-import androidx.fragment.app.Fragment
+import android.provider.MediaStore
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
+import androidx.core.graphics.drawable.toBitmap
 import androidx.databinding.DataBindingUtil
+import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.example.datewise.R
@@ -15,12 +22,12 @@ import com.example.datewise.databinding.FragmentDayEkleBinding
 import com.example.datewise.ui.viewmodel.DayViewModel
 import com.example.datewise.ui.viewmodel.DayViewModelFactory
 import com.google.android.material.snackbar.Snackbar
-
-
 class DayEkleFragment : Fragment() {
     private lateinit var binding: FragmentDayEkleBinding
     private lateinit var dayDB:AppDatabase
     private lateinit var dayViewModel: DayViewModel
+
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -44,9 +51,11 @@ class DayEkleFragment : Fragment() {
             ViewModelProvider(this,it).get(DayViewModel::class.java)
         }!!
 
+
         binding.lifecycleOwner = this
         return binding.root
     }
+
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -54,11 +63,14 @@ class DayEkleFragment : Fragment() {
             btnEkle.setOnClickListener{
                 val day=editTextName.text.toString()
                 val dayName=editTextDayName.text.toString()
-                //val image=imageView.setImageDrawable()
+                val dayImage: Bitmap? = profilePhotoImageView.drawable.toBitmap()
+
                 dayViewModel.ekleday(
                     DayModel(
-                        name=day,
+                        name =day,
                         dayname = dayName,
+                        image = dayImage.toString()
+
 
                     )
                 )
@@ -68,6 +80,7 @@ class DayEkleFragment : Fragment() {
             btnClose.setOnClickListener {
                 val day=editTextName.text.toString()
                 val dayName=editTextDayName.text.toString()
+                val dayImage: Bitmap? = profilePhotoImageView.drawable.toBitmap()
                 if(day.isEmpty()  && dayName.isEmpty()){
                     // İkisi de boş ise "Boş" Snackbar mesajı göster
                     Snackbar.make(requireView(),"Girilmedi",1000).show()
@@ -77,7 +90,8 @@ class DayEkleFragment : Fragment() {
                     dayViewModel.silday(
                         DayModel(
                             name = day,
-                            dayname = dayName
+                            dayname = dayName,
+                            image = dayImage.toString()
 
                         )
                     )

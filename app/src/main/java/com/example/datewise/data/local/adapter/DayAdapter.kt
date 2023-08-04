@@ -1,7 +1,9 @@
 package com.example.datewise.data.local.adapter
 
+import android.graphics.Bitmap
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.core.graphics.drawable.toBitmap
 import androidx.navigation.Navigation
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
@@ -9,8 +11,6 @@ import com.example.datewise.data.local.DiffUtil.DateWiseDiffUtilCallBack
 import com.example.datewise.data.local.model.DayModel
 import com.example.datewise.databinding.ItemCardBinding
 import com.example.datewise.ui.anasayfa.AnasayfaFragmentDirections
-import java.text.SimpleDateFormat
-import java.util.*
 
 class DayAdapter(private var dayList:List<DayModel?>):ListAdapter<DayModel,DayAdapter.CardHolder>(DateWiseDiffUtilCallBack())
     //RecyclerView.Adapter<DayAdapter.CardHolder>()
@@ -27,11 +27,20 @@ class DayAdapter(private var dayList:List<DayModel?>):ListAdapter<DayModel,DayAd
     override fun onBindViewHolder(holder: CardHolder, position: Int) {
         //val day=dayList[position]
         val day=getItem(position)
-        holder.itemCardBinding.apply {
-            day.let{
 
-                textViewYazi.text=day?.dayname
-                textViewAd.text=day?.name
+        holder.itemCardBinding.apply {
+            day?.let{
+                //listelenen kartta görünenler
+                //textViewYazi.text=day?.dayname
+                //textViewYazi.visibility= View.GONE
+               // textViewAd.text=day?.name
+                //textViewAd.visibility=View.GONE
+                val dayImage: Bitmap? = profilePhotoImageView.drawable.toBitmap()
+                dayImage.apply {
+                    day.image
+                }
+                //profilePhotoImageView.setImageResource(day.image)
+
 
             }
             itemCard.setOnClickListener { button ->
