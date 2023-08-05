@@ -63,13 +63,13 @@ class DayEkleFragment : Fragment() {
             btnEkle.setOnClickListener{
                 val day=editTextName.text.toString()
                 val dayName=editTextDayName.text.toString()
-                val dayImage: Bitmap? = profilePhotoImageView.drawable.toBitmap()
+                val dayEmoji="E"
 
                 dayViewModel.ekleday(
                     DayModel(
                         name =day,
                         dayname = dayName,
-                        image = dayImage.toString()
+                        emoji = dayEmoji
 
 
                     )
@@ -80,7 +80,7 @@ class DayEkleFragment : Fragment() {
             btnClose.setOnClickListener {
                 val day=editTextName.text.toString()
                 val dayName=editTextDayName.text.toString()
-                val dayImage: Bitmap? = profilePhotoImageView.drawable.toBitmap()
+                val dayEmoji="E"
                 if(day.isEmpty()  && dayName.isEmpty()){
                     // İkisi de boş ise "Boş" Snackbar mesajı göster
                     Snackbar.make(requireView(),"Girilmedi",1000).show()
@@ -91,13 +91,16 @@ class DayEkleFragment : Fragment() {
                         DayModel(
                             name = day,
                             dayname = dayName,
-                            image = dayImage.toString()
+                            emoji = dayEmoji
 
                         )
                     )
                     findNavController().navigate(R.id.action_dayEkleFragment_to_anasayfaFragment)
                 }
 
+            }
+            profilePhotoImageView.setOnClickListener {
+                findNavController().navigate(R.id.action_dayEkleFragment_to_emojiFragment)
             }
         }
     }

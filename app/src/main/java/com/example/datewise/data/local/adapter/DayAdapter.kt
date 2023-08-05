@@ -35,10 +35,7 @@ class DayAdapter(private var dayList:List<DayModel?>):ListAdapter<DayModel,DayAd
                 //textViewYazi.visibility= View.GONE
                // textViewAd.text=day?.name
                 //textViewAd.visibility=View.GONE
-                val dayImage: Bitmap? = profilePhotoImageView.drawable.toBitmap()
-                dayImage.apply {
-                    day.image
-                }
+                profilePhotoImageView.setImageResource(day.emoji)
                 //profilePhotoImageView.setImageResource(day.image)
 
 
