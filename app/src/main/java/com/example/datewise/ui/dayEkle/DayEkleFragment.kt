@@ -110,6 +110,9 @@ class DayEkleFragment : Fragment() {
         binding.txtEmoji.setOnClickListener {
             findNavController().navigate(R.id.action_dayEkleFragment_to_emojiFragment)
         }
+        binding.btnBell.apply {
+
+        }
 
     }
 
