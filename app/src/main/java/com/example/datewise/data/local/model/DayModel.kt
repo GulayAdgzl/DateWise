@@ -22,4 +22,8 @@ data class DayModel(
     val dayname:String,
     //@ColumnInfo(name = "day_date")
     //val dayDate: String
+    @ColumnInfo(name = "not_title")
+    val title: String,
+    @ColumnInfo(name = "not_content")
+    val content: String
     ):Serializable

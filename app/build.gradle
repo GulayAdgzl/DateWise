@@ -61,4 +61,8 @@ dependencies {
 
     implementation "com.vanniktech:emoji-google:0.15.0"
 
+    //workmanager
+    implementation "androidx.work:work-runtime-ktx:2.8.1"
+
+
 }

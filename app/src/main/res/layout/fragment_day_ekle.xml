@@ -9,6 +9,19 @@
         android:background="@drawable/top_background_gradiunt"
         tools:context=".ui.dayEkle.DayEkleFragment">
 
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/ntn_bell"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:clickable="true"
+            app:backgroundTint="@color/white"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.473"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.669"
+            app:srcCompat="@drawable/bell" />
 
         <TextView
             android:id="@+id/txtEmoji"
