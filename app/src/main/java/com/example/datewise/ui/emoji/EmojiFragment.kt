@@ -2,7 +2,6 @@ package com.example.datewise.ui.emoji
 
 import android.app.Dialog
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -15,14 +14,17 @@ import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.vanniktech.emoji.Emoji
+import com.vanniktech.emoji.EmojiAndroidProvider
+import com.vanniktech.emoji.EmojiManager
 import com.vanniktech.emoji.EmojiView
 import com.vanniktech.emoji.listeners.OnEmojiBackspaceClickListener
 import com.vanniktech.emoji.listeners.OnEmojiClickListener
 
 
 class EmojiFragment : BottomSheetDialogFragment(),OnEmojiClickListener,
-OnEmojiBackspaceClickListener{
+    OnEmojiBackspaceClickListener{
     lateinit var emojiView:EmojiView
+
 
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
         val dialog=BottomSheetDialog(requireContext(),theme)
@@ -43,8 +45,15 @@ OnEmojiBackspaceClickListener{
         layoutParams.height=WindowManager.LayoutParams.MATCH_PARENT
         bottomSheet.layoutParams=layoutParams
     }
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        emojiView=view.findViewById(R.id.emojiView)
+        emojiView.setUp(
+            rootView = view.rootView,
+            onEmojiClickListener = this,
+            onEmojiBackspaceClickListener = this,
+            editText = null,
+        )
 
     }
 
@@ -53,21 +62,14 @@ OnEmojiBackspaceClickListener{
         savedInstanceState: Bundle?
     ): View? =inflater.inflate(R.layout.fragment_emoji,container,false)
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-        emojiView=view.findViewById(R.id.emojiView)
-        emojiView.setUp(
-            rootView = view.rootView,
-           onEmojiClickListener=this,
-            onEmojiBackspaceClickListener = this,
-            editText = null
-
-        )
-    }
 
     override fun onDestroy() {
         super.onDestroy()
         emojiView.tearDown()
+    }
+
+
+    override fun onEmojiBackspaceClick() {
     }
 
 
@@ -76,11 +78,11 @@ OnEmojiBackspaceClickListener{
         findNavController().popBackStack()
     }
 
-    override fun onEmojiBackspaceClick() {
-    }
 
     companion object{
         const val KEY_REQUEST_EMOJI = "Key_Emoji"
         const val KEY_BUNDLE_EMOJI = "Key_Bundle_Emoji"
     }
+
+
 }

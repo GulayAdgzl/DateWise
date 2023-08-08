@@ -15,7 +15,7 @@ data class DayModel(
     @ColumnInfo(name = "id")
     val id:Int=0,
     @ColumnInfo(name = "emoji")
-    val emoji:String?,
+    val emoji:String,
     @ColumnInfo(name = "day_name")
     val name:String,
     @ColumnInfo(name = "day_dayName")

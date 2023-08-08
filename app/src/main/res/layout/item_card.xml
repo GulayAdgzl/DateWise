@@ -17,12 +17,13 @@
             android:layout_width="106dp"
             android:layout_height="match_parent">
 
-            <ImageView
-                android:id="@+id/profilePhotoImageView"
+            <TextView
+                android:id="@+id/txtEmoji"
                 android:layout_width="106dp"
                 android:layout_height="100dp"
+                android:text=""
+                android:background="@drawable/profile"
                 android:scaleType="centerCrop"
-                android:src="@drawable/user"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"

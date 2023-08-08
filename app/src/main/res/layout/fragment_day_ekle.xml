@@ -5,25 +5,25 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:background="@drawable/top_background_gradiunt"
         android:layout_height="match_parent"
+        android:background="@drawable/top_background_gradiunt"
         tools:context=".ui.dayEkle.DayEkleFragment">
 
 
-        <ImageView
-            android:id="@+id/profilePhotoImageView"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:scaleType="centerCrop"
-            android:clickable="true"
-            android:focusable="true"
-            android:onClick="onProfilePhotoClick"
-            android:src="@drawable/user"
+        <TextView
+            android:id="@+id/txtEmoji"
+            android:layout_width="136dp"
+            android:layout_height="103dp"
+            android:layout_marginBottom="475dp"
+            android:background="@drawable/profile"
+            android:padding="30dp"
+            android:text="TextView"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/constraintLayout3"
-            app:layout_constraintVertical_bias="0.065" />
+            app:layout_constraintTop_toBottomOf="@+id/constraintLayout3">
+
+        </TextView>
 
         <EditText
             android:id="@+id/editTextName"
@@ -52,8 +52,9 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/constraintLayout3"
             android:layout_width="414dp"
-            android:layout_height="124dp"
-            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_height="0dp"
+            android:layout_marginBottom="36dp"
+            app:layout_constraintBottom_toTopOf="@+id/txtEmoji"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.666"
             app:layout_constraintStart_toStartOf="parent"
