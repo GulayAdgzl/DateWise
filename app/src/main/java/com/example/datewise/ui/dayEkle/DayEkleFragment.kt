@@ -18,7 +18,10 @@ import androidx.fragment.app.setFragmentResultListener
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
+import androidx.work.PeriodicWorkRequestBuilder
+import androidx.work.WorkRequest
 import com.example.datewise.R
+import com.example.datewise.data.local.NotificationWorker
 import com.example.datewise.data.local.database.AppDatabase
 import com.example.datewise.data.local.model.DayModel
 import com.example.datewise.databinding.FragmentDayEkleBinding
@@ -32,6 +35,7 @@ class DayEkleFragment : Fragment() {
     private lateinit var binding: FragmentDayEkleBinding
     private lateinit var dayDB: AppDatabase
     private lateinit var dayViewModel: DayViewModel
+    private lateinit var request: WorkRequest
 
     private var emoji:String=""
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -87,6 +91,7 @@ class DayEkleFragment : Fragment() {
                 val day = editTextName.text.toString()
                 val dayName = editTextDayName.text.toString()
                 val dayEmoji =txtEmoji.text.toString()
+
                 if (day.isEmpty() && dayName.isEmpty()) {
                     // İkisi de boş ise "Boş" Snackbar mesajı göster
                     Snackbar.make(requireView(), "Girilmedi", 1000).show()
@@ -97,7 +102,8 @@ class DayEkleFragment : Fragment() {
                         DayModel(
                             name = day,
                             dayname = dayName,
-                            emoji = dayEmoji
+                            emoji = dayEmoji,
+
 
                         )
                     )
@@ -110,11 +116,12 @@ class DayEkleFragment : Fragment() {
         binding.txtEmoji.setOnClickListener {
             findNavController().navigate(R.id.action_dayEkleFragment_to_emojiFragment)
         }
-        binding.btnBell.apply {
-
+        binding.btnBell.setOnClickListener {
+            findNavController().navigate(R.id.action_dayEkleFragment_to_notificationFragment)
         }
 
     }
+
 
     private fun observe() {
        setFragmentResultListener(EmojiFragment.KEY_REQUEST_EMOJI){_,bundle ->
