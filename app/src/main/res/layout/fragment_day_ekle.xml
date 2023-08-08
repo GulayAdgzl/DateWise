@@ -10,70 +10,55 @@
         android:background="@drawable/top_background_gradiunt"
         tools:context=".ui.dayEkle.DayEkleFragment">
 
-        <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/btn_bell"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+        <androidx.cardview.widget.CardView
+            android:id="@+id/itemCard"
+            android:layout_width="359dp"
+            android:layout_height="91dp"
+            android:layout_margin="20dp"
             android:clickable="true"
-            app:backgroundTint="@color/white"
+            android:foreground="@drawable/ekle_effect"
+            app:cardCornerRadius="50dp"
+            app:cardElevation="5dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.473"
+            app:layout_constraintHorizontal_bias="0.78"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.669"
-            app:srcCompat="@drawable/bell" />
+            app:layout_constraintTop_toBottomOf="@+id/constraintLayout3"
+            app:layout_constraintVertical_bias="0.113" >
 
-        <TextView
-            android:id="@+id/txtEmoji"
-            android:layout_width="136dp"
-            android:layout_height="103dp"
-            android:layout_marginBottom="475dp"
-            android:background="@drawable/profile"
-            android:padding="30dp"
-            android:text="TextView"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/constraintLayout3">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
 
-        </TextView>
+                <ImageView
+                    android:id="@+id/imageView2"
+                    android:layout_width="85dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    app:srcCompat="@drawable/add" />
 
-        <EditText
-            android:id="@+id/editTextName"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="288dp"
-            android:layout_marginEnd="100dp"
-            android:ems="10"
-            android:hint="Name"
-            android:inputType="textPersonName"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+                <EditText
+                    android:id="@+id/editTextTextPersonName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:ems="10"
+                    android:inputType="textPersonName"
+                    android:text="Name" />
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
 
-        <EditText
-            android:id="@+id/editTextDayName"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="360dp"
-            android:layout_marginEnd="100dp"
-            android:ems="10"
-            android:hint="Name"
-            android:inputType="textPersonName"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/constraintLayout3"
-            android:layout_width="414dp"
-            android:layout_height="0dp"
-            android:layout_marginBottom="36dp"
-            app:layout_constraintBottom_toTopOf="@+id/txtEmoji"
+            android:layout_width="418dp"
+            android:layout_height="114dp"
+
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.666"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.0">
+            app:layout_constraintTop_toTopOf="parent">
 
             <ImageView
                 android:id="@+id/btnEkle"
