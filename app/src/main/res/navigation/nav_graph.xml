@@ -31,20 +31,13 @@
         <action
             android:id="@+id/action_dayEkleFragment_to_emojiFragment"
             app:destination="@id/emojiFragment" />
-        <action
-            android:id="@+id/action_dayEkleFragment_to_notificationFragment"
-            app:destination="@id/notificationFragment" />
+
     </fragment>
     <fragment
         android:id="@+id/emojiFragment"
         android:name="com.example.datewise.ui.emoji.EmojiFragment"
         android:label="fragment_emoji"
         tools:layout="@layout/fragment_emoji" />
-    <fragment
-        android:id="@+id/notificationFragment"
-        tools:layout="@layout/fragment_notification"
-        android:name="com.example.datewise.ui.NotificationFragment"
-        android:label="NotificationFragment" />
 
 
 </navigation>

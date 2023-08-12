@@ -1,35 +1,43 @@
 package com.example.datewise.ui.dayEkle
 
-import android.app.Activity
-import android.content.Intent
-import android.graphics.Bitmap
-import android.graphics.BitmapFactory
+
+import android.Manifest.permission.POST_NOTIFICATIONS
+import android.os.Build.VERSION.SDK_INT
 import android.os.Bundle
-import android.provider.MediaStore
+import java.text.SimpleDateFormat
+import java.util.concurrent.TimeUnit.MILLISECONDS
+import androidx.work.ExistingWorkPolicy.REPLACE
 import android.view.LayoutInflater
+import android.content.pm.PackageManager.PERMISSION_GRANTED
 import android.view.View
+import com.google.android.material.snackbar.Snackbar.LENGTH_LONG
+import androidx.core.content.ContextCompat.checkSelfPermission
+import android.os.Build.VERSION_CODES.TIRAMISU
+import java.util.Locale.getDefault
+import com.google.android.material.snackbar.Snackbar.make
 import android.view.ViewGroup
-import android.widget.ImageView
-import androidx.core.graphics.drawable.toBitmap
+import androidx.activity.result.ActivityResultLauncher
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.setFragmentResult
 import androidx.fragment.app.setFragmentResultListener
 import androidx.lifecycle.ViewModelProvider
-import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
-import androidx.work.PeriodicWorkRequestBuilder
-import androidx.work.WorkRequest
+import androidx.work.*
 import com.example.datewise.R
-import com.example.datewise.data.local.NotificationWorker
 import com.example.datewise.data.local.database.AppDatabase
 import com.example.datewise.data.local.model.DayModel
+import com.example.datewise.data.util.EMPTY
 import com.example.datewise.databinding.FragmentDayEkleBinding
 import com.example.datewise.ui.emoji.EmojiFragment
+import com.example.datewise.ui.notification.NotificationWorker
+import com.example.datewise.ui.notification.NotificationWorker.Companion.NOTIFICATION_ID
+import com.example.datewise.ui.notification.NotificationWorker.Companion.NOTIFICATION_WORK
 import com.example.datewise.ui.viewmodel.DayViewModel
 import com.example.datewise.ui.viewmodel.DayViewModelFactory
 import com.google.android.material.snackbar.Snackbar
-import kotlinx.coroutines.flow.collect
+import java.lang.System.currentTimeMillis
+import java.util.*
 
 class DayEkleFragment : Fragment() {
     private lateinit var binding: FragmentDayEkleBinding
@@ -37,7 +45,11 @@ class DayEkleFragment : Fragment() {
     private lateinit var dayViewModel: DayViewModel
     private lateinit var request: WorkRequest
 
-    private var emoji:String=""
+    private lateinit var checkNotificationPermission: ActivityResultLauncher<String>
+    private var isPermission = false
+
+
+    private var emoji:String=String.EMPTY
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         dayDB = AppDatabase.getAppDatabase(requireContext())!!
@@ -65,68 +77,136 @@ class DayEkleFragment : Fragment() {
         return binding.root
     }
 
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
         observe()
+
+        checkPermission()
+
         binding.apply {
             btnEkle.setOnClickListener {
-                val day = editTextName.text.toString()
-                val dayName = editTextDayName.text.toString()
-                val dayEmoji = txtEmoji.text.toString()
 
-                dayViewModel.ekleday(
-                    DayModel(
-                        name = day,
-                        dayname = dayName,
-                        emoji = dayEmoji
+                if(isPermission){
+                    val day = editTextName.text.toString()
+                    val dayName = editTextDayName.text.toString()
+                    val dayEmoji = emojiBtn.text.toString()
+                    binding.emojiBtn.setOnClickListener {
+                        findNavController().navigate(R.id.action_dayEkleFragment_to_emojiFragment)
+                    }
 
-
-                    )
-                )
-                findNavController().navigate(R.id.action_dayEkleFragment_to_anasayfaFragment)
-            }
-            //Kapatma butonu-silme
-            btnClose.setOnClickListener {
-                val day = editTextName.text.toString()
-                val dayName = editTextDayName.text.toString()
-                val dayEmoji =txtEmoji.text.toString()
-
-                if (day.isEmpty() && dayName.isEmpty()) {
-                    // İkisi de boş ise "Boş" Snackbar mesajı göster
-                    Snackbar.make(requireView(), "Girilmedi", 1000).show()
-                    findNavController().navigate(R.id.action_dayEkleFragment_to_anasayfaFragment)
-                } else {
-                    Snackbar.make(requireView(), "Silindi ", 1000).show()
-                    dayViewModel.silday(
+                    dayViewModel.ekleday(
                         DayModel(
                             name = day,
                             dayname = dayName,
-                            emoji = dayEmoji,
-
-
+                            emoji = dayEmoji
                         )
                     )
-                    findNavController().navigate(R.id.action_dayEkleFragment_to_anasayfaFragment)
+
+
+                    val customCalendar= Calendar.getInstance()
+                    customCalendar.set(
+                        binding.scale.year,
+                        binding.scale.month,
+                        binding.scale.dayOfMonth,
+                        binding.d.hour,
+                        binding.d.minute, 0
+                    )
+                    val customTime = customCalendar.timeInMillis
+                    val currentTime = currentTimeMillis()
+                    if(customTime>currentTime){
+                        val data=Data.Builder().putInt(NOTIFICATION_ID,0).build()
+                        val delay=customTime-currentTime
+                        scheduleNotification(delay,data)
+                        val titleNotificationSchedule = getString(R.string.notification_schedule_title)
+                        val patternNotificationSchedule = getString(R.string.notification_schedule_pattern)
+                        make(
+                            binding.co,
+                            titleNotificationSchedule + SimpleDateFormat(
+                                patternNotificationSchedule, getDefault()
+                            ).format(customCalendar.time).toString(),
+                            LENGTH_LONG
+                        ).show()
+                    }else {
+                        val errorNotificationSchedule = getString(R.string.notification_schedule_error)
+                        make(binding.co, errorNotificationSchedule, LENGTH_LONG).show()
+                    }
+                }else {
+                    if (SDK_INT >= TIRAMISU) {
+                        checkNotificationPermission.launch(POST_NOTIFICATIONS)
+                    }
                 }
+
+
+                findNavController().navigate(R.id.action_dayEkleFragment_to_anasayfaFragment)
 
             }
 
-        }
-        binding.txtEmoji.setOnClickListener {
-            findNavController().navigate(R.id.action_dayEkleFragment_to_emojiFragment)
-        }
-        binding.btnBell.setOnClickListener {
-            findNavController().navigate(R.id.action_dayEkleFragment_to_notificationFragment)
+
+
+                //Kapatma butonu-silme
+                btnClose.setOnClickListener {
+                    val day = editTextName.text.toString()
+                    val dayName = editTextDayName.text.toString()
+                    val dayEmoji = emojiBtn.text.toString()
+
+                    if (day.isEmpty() && dayName.isEmpty()) {
+                        // İkisi de boş ise "Boş" Snackbar mesajı göster
+                        Snackbar.make(requireView(), "Girilmedi", 1000).show()
+                        findNavController().navigate(R.id.action_dayEkleFragment_to_anasayfaFragment)
+                    } else {
+                        Snackbar.make(requireView(), "Silindi ", 1000).show()
+                        dayViewModel.silday(
+                            DayModel(
+                                name = day,
+                                dayname = dayName,
+                                emoji = dayEmoji,
+                            )
+                        )
+
+                        findNavController().navigate(R.id.action_dayEkleFragment_to_anasayfaFragment)
+                        //}
+
+                    }
+
+                }
+               /* binding.emojiBtn.setOnClickListener {
+                    findNavController().navigate(R.id.action_dayEkleFragment_to_emojiFragment)
+                }*/
+                /* binding.btnBell.setOnClickListener {
+                findNavController().navigate(R.id.action_dayEkleFragment_to_notificationFragment)
+            }*/
+            }
+
+
         }
 
+
+    private fun checkPermission() {
+        if (SDK_INT >= TIRAMISU) {
+            if (checkSelfPermission(requireContext(), POST_NOTIFICATIONS) == PERMISSION_GRANTED) {
+                isPermission = true
+            } else {
+                isPermission = false
+
+                checkNotificationPermission.launch(POST_NOTIFICATIONS)
+            }
+        } else {
+            isPermission = true
+        }
     }
+    private fun scheduleNotification(delay: Long, data: Data) {
+        val notificationWork = OneTimeWorkRequest.Builder(NotificationWorker::class.java)
+            .setInitialDelay(delay, MILLISECONDS).setInputData(data).build()
 
+        val instanceWorkManager = WorkManager.getInstance(requireContext())
+        instanceWorkManager.beginUniqueWork(NOTIFICATION_WORK, REPLACE, notificationWork).enqueue()
+    }
 
     private fun observe() {
        setFragmentResultListener(EmojiFragment.KEY_REQUEST_EMOJI){_,bundle ->
            emoji=bundle.getString(EmojiFragment.KEY_BUNDLE_EMOJI).orEmpty()
-           binding.txtEmoji.text=emoji
+           binding.emojiBtn.text=emoji
                //getString(R.string.select_emoji_with_emoji_format,emoji)
        }
     }

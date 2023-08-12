@@ -13,24 +13,20 @@
         app:cardCornerRadius="50dp"
         app:cardElevation="5dp">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="106dp"
-            android:layout_height="match_parent">
 
-            <TextView
-                android:id="@+id/txtEmoji"
-                android:layout_width="106dp"
-                android:layout_height="100dp"
-                android:text=""
-                android:background="@drawable/profile"
-                android:scaleType="centerCrop"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.0" />
-        </androidx.constraintlayout.widget.ConstraintLayout>
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/emojiBtn"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@color/white"
+            android:gravity="center"
+            android:text="☺"
+            android:textSize="60sp">
+
+
+        </androidx.appcompat.widget.AppCompatButton>
+
 
     </androidx.cardview.widget.CardView>
 

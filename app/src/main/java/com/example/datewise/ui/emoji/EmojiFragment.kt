@@ -20,11 +20,9 @@ import com.vanniktech.emoji.EmojiView
 import com.vanniktech.emoji.listeners.OnEmojiBackspaceClickListener
 import com.vanniktech.emoji.listeners.OnEmojiClickListener
 
-
 class EmojiFragment : BottomSheetDialogFragment(),OnEmojiClickListener,
     OnEmojiBackspaceClickListener{
     lateinit var emojiView:EmojiView
-
 
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
         val dialog=BottomSheetDialog(requireContext(),theme)
@@ -69,8 +67,7 @@ class EmojiFragment : BottomSheetDialogFragment(),OnEmojiClickListener,
     }
 
 
-    override fun onEmojiBackspaceClick() {
-    }
+    override fun onEmojiBackspaceClick() {}
 
 
     override fun onEmojiClick(emoji: Emoji) {
