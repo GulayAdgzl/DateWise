@@ -1,6 +1,4 @@
 package com.example.datewise.ui.anasayfa
-
-
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater

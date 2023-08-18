@@ -14,11 +14,10 @@ import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.vanniktech.emoji.Emoji
-import com.vanniktech.emoji.EmojiAndroidProvider
-import com.vanniktech.emoji.EmojiManager
 import com.vanniktech.emoji.EmojiView
 import com.vanniktech.emoji.listeners.OnEmojiBackspaceClickListener
 import com.vanniktech.emoji.listeners.OnEmojiClickListener
+
 
 class EmojiFragment : BottomSheetDialogFragment(),OnEmojiClickListener,
     OnEmojiBackspaceClickListener{

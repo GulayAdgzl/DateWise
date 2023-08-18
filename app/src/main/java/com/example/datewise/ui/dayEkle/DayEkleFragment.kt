@@ -84,16 +84,20 @@ class DayEkleFragment : Fragment() {
 
         checkPermission()
 
+
         binding.apply {
+            binding.emojiBtn.setOnClickListener {
+                findNavController().navigate(R.id.action_navigation_emoji)
+            }
+
             btnEkle.setOnClickListener {
+
 
                 if(isPermission){
                     val day = editTextName.text.toString()
                     val dayName = editTextDayName.text.toString()
                     val dayEmoji = emojiBtn.text.toString()
-                    binding.emojiBtn.setOnClickListener {
-                        findNavController().navigate(R.id.action_dayEkleFragment_to_emojiFragment)
-                    }
+
 
                     dayViewModel.ekleday(
                         DayModel(

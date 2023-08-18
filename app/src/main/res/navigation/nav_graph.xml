@@ -29,12 +29,13 @@
             android:name="day"
             app:argType="com.example.datewise.data.local.model.DayModel" />
         <action
-            android:id="@+id/action_dayEkleFragment_to_emojiFragment"
-            app:destination="@id/emojiFragment" />
+            android:id="@+id/action_navigation_emoji"
+            app:destination="@id/navigation_emoji"
+            app:nullable="true" />
 
     </fragment>
-    <fragment
-        android:id="@+id/emojiFragment"
+    <dialog
+        android:id="@+id/navigation_emoji"
         android:name="com.example.datewise.ui.emoji.EmojiFragment"
         android:label="fragment_emoji"
         tools:layout="@layout/fragment_emoji" />
