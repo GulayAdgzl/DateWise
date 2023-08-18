@@ -1,16 +1,15 @@
 package com.example.datewise.ui.anasayfa
 
+
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.view.animation.Animation
 import android.view.animation.AnimationUtils
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
-import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.datewise.R
 import com.example.datewise.data.local.adapter.DayAdapter
@@ -20,7 +19,8 @@ import com.example.datewise.databinding.FragmentAnasayfaBinding
 import com.example.datewise.ui.viewmodel.DayViewModel
 import com.example.datewise.ui.viewmodel.DayViewModelFactory
 import com.google.android.material.snackbar.Snackbar
-
+import java.text.SimpleDateFormat
+import java.util.*
 
 
 class AnasayfaFragment : Fragment() {
@@ -29,6 +29,8 @@ class AnasayfaFragment : Fragment() {
     private lateinit var dayDB: AppDatabase
     private lateinit var dayViewModel: DayViewModel
      private lateinit var adapter: DayAdapter
+
+
 
     //private lateinit var horizontalRecyclerView: RecyclerView
 
@@ -77,13 +79,29 @@ class AnasayfaFragment : Fragment() {
         tumDayleriGoster()
 
 
+
         // binding.textMonth.text=dayViewModel.getBugununAyı()
 
 
         binding.apply {
-            buttonYeniDay.setOnClickListener {
-                findNavController().navigate(R.id.action_anasayfaFragment_to_dayEkleFragment)
-            }
+           //val month= binding.changeDate.month.toString()
+          // binding.textMonth.text=month
+            // Şu anki tarihi al
+            val calendar = Calendar.getInstance()
+            val currentDate = calendar.time
+
+// SimpleDateFormat kullanarak ay adını al
+            val monthFormat = SimpleDateFormat("MMMM", Locale.getDefault())
+            val currentMonth = monthFormat.format(currentDate)
+
+// Ay adını TextView'e yazdır
+            binding.textMonth.text = currentMonth
+
+
+                buttonYeniDay.setOnClickListener {
+                    findNavController().navigate(R.id.action_anasayfaFragment_to_dayEkleFragment)
+                }
+
         }
 
         //anim
@@ -111,6 +129,8 @@ class AnasayfaFragment : Fragment() {
         }
 
     }
+
+
 }
 
 

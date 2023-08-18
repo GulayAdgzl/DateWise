@@ -7,10 +7,11 @@
             name="adapter"
             type="com.example.datewise.data.local.adapter.DayAdapter" />
     </data>
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:background="@drawable/top_background_gradiunt"
         android:layout_height="match_parent"
+        android:background="@drawable/top_background_gradiunt"
         tools:context=".ui.anasayfa.AnasayfaFragment">
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
@@ -22,10 +23,10 @@
             app:backgroundTint="@color/white"
             app:layout_constraintBottom_toTopOf="@+id/constraintLayout"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.98"
+            app:layout_constraintHorizontal_bias="0.955"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="1.0" />
+            app:layout_constraintVertical_bias="0.712" />
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/buttonHatırlatıcı"
@@ -35,10 +36,10 @@
             app:backgroundTint="@color/white"
             app:layout_constraintBottom_toTopOf="@+id/constraintLayout"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.047"
+            app:layout_constraintHorizontal_bias="0.044"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="1.0"
+            app:layout_constraintVertical_bias="0.712"
             app:srcCompat="@drawable/bell" />
 
         <TextView
@@ -51,26 +52,29 @@
             android:textStyle="bold"
             app:layout_constraintBottom_toTopOf="@+id/constraintLayout"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.501"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="1.0" />
+            app:layout_constraintVertical_bias="0.723" />
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/constraintLayout"
-            android:layout_width="409dp"
-            android:layout_height="599dp"
+            android:layout_width="406dp"
+            android:layout_height="575dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent">
 
             <ScrollView
                 android:id="@+id/scrollView"
-                android:layout_width="416dp"
-                android:layout_height="591dp"
+                android:layout_width="408dp"
+                android:layout_height="237dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.333"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent">
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.0">
 
 
                 <androidx.recyclerview.widget.RecyclerView
@@ -79,7 +83,18 @@
                     android:layout_height="wrap_content"
                     android:adapter="@{adapter}"
                     tools:listitem="@layout/item_card" />
+
+
             </ScrollView>
+
+            <DatePicker
+                android:layout_width="356dp"
+                android:layout_height="291dp"
+                android:id="@+id/changeDate"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/scrollView" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -87,4 +102,3 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </layout>
-
