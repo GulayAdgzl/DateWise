@@ -1,10 +1,13 @@
 package com.example.datewise.ui.anasayfa
+import android.content.res.Resources
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.animation.AnimationUtils
+import android.widget.DatePicker
+import androidx.core.content.ContextCompat
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
@@ -16,8 +19,10 @@ import com.example.datewise.data.local.model.DayModel
 import com.example.datewise.databinding.FragmentAnasayfaBinding
 import com.example.datewise.ui.viewmodel.DayViewModel
 import com.example.datewise.ui.viewmodel.DayViewModelFactory
+import com.google.android.material.color.utilities.MaterialDynamicColors.background
 import com.google.android.material.snackbar.Snackbar
 import java.text.SimpleDateFormat
+import java.time.LocalDate
 import java.util.*
 
 
@@ -43,6 +48,7 @@ class AnasayfaFragment : Fragment() {
         //binding.profil.setBackgroundColor(R.drawable.round_image_view)
 
 
+
         val application= requireNotNull(this.activity).application
         val dataSource=AppDatabase.getAppDatabase(application)?.dayDao
 
@@ -56,7 +62,9 @@ class AnasayfaFragment : Fragment() {
             //diften sonra
             adapter.submitList(dayList)
             binding.adapter=adapter
+
         }
+
         binding.lifecycleOwner=this
 
         return binding.root
@@ -76,17 +84,54 @@ class AnasayfaFragment : Fragment() {
 
         tumDayleriGoster()
 
-
-
-        // binding.textMonth.text=dayViewModel.getBugununAyı()
-
-
         binding.apply {
+
+
            //val month= binding.changeDate.month.toString()
           // binding.textMonth.text=month
             // Şu anki tarihi al
             val calendar = Calendar.getInstance()
             val currentDate = calendar.time
+
+
+            //deneme
+           /* val datePicker = binding.changeDate
+
+            val markedDates= mutableListOf<Calendar>()
+            for(i in 1..10){
+                val pastDate=calendar.clone() as Calendar
+                pastDate.add(android.icu.util.Calendar.DAY_OF_MONTH,-1)
+                markedDates.add(pastDate)
+            }
+            datePicker.init(
+                calendar.get(Calendar.YEAR),
+                calendar.get(Calendar.MONTH),
+                calendar.get(Calendar.DAY_OF_MONTH)
+            ) { view, year, month, dayOfMonth ->
+                val selectedDate = Calendar.getInstance()
+                selectedDate.set(year, month, dayOfMonth)
+
+                // Seçilen tarihi kullan
+            }
+            // Geçmiş tarihleri işaretle
+            for (markedDate in markedDates) {
+                val year = markedDate.get(Calendar.YEAR)
+                val month = markedDate.get(Calendar.MONTH)
+                val day = markedDate.get(Calendar.DAY_OF_MONTH)
+                val markedTimeInMillis = markedDate.timeInMillis
+
+                if (markedTimeInMillis <= calendar.timeInMillis) {
+                    val dpDialog = datePicker
+                    dpDialog.minDate = markedTimeInMillis
+                    dpDialog.findViewById<View>(Resources.getSystem().getIdentifier("day", "id", "android"))?.apply {
+                        background = ContextCompat.getDrawable(requireContext(), R.drawable.ic_marked_date)
+                    }
+                }
+            }*/
+
+
+
+
 
 // SimpleDateFormat kullanarak ay adını al
             val monthFormat = SimpleDateFormat("MMMM", Locale.getDefault())
