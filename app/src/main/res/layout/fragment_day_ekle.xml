@@ -118,6 +118,7 @@
 
         <DatePicker
             android:id="@+id/scale"
+            android:background="@drawable/circle_gradient"
             android:layout_width="151dp"
             android:layout_height="293dp"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -131,6 +132,7 @@
             android:layout_width="259dp"
             android:layout_height="248dp"
             android:timePickerMode="spinner"
+            android:background="@drawable/circle_gradient"
             android:id="@+id/d"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"

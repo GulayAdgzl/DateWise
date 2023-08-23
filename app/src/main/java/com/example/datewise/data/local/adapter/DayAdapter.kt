@@ -1,9 +1,8 @@
 package com.example.datewise.data.local.adapter
 
-import android.graphics.Bitmap
+
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import androidx.core.graphics.drawable.toBitmap
 import androidx.navigation.Navigation
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
@@ -12,10 +11,12 @@ import com.example.datewise.data.local.model.DayModel
 import com.example.datewise.databinding.ItemCardBinding
 import com.example.datewise.ui.anasayfa.AnasayfaFragmentDirections
 
+
 class DayAdapter(private var dayList:List<DayModel?>):ListAdapter<DayModel,DayAdapter.CardHolder>(DateWiseDiffUtilCallBack())
     //RecyclerView.Adapter<DayAdapter.CardHolder>()
 {
     class CardHolder( val itemCardBinding: ItemCardBinding):RecyclerView.ViewHolder(itemCardBinding.root)//difften sonra{
+
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CardHolder {
@@ -37,6 +38,12 @@ class DayAdapter(private var dayList:List<DayModel?>):ListAdapter<DayModel,DayAd
                 //textViewAd.visibility=View.GONE
                //??????????????????
                 emojiBtn.text=day?.emoji
+
+
+
+
+
+
 
 
             }
