@@ -83,14 +83,14 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/constraintLayout3"
-            android:layout_width="362dp"
-            android:layout_height="106dp"
-
-            android:layout_marginTop="36dp"
+            android:layout_width="408dp"
+            android:layout_height="128dp"
+            app:layout_constraintBottom_toBottomOf="@+id/constraintLayout2"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.489"
+            app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.004">
 
             <ImageView
                 android:id="@+id/btnEkle"
@@ -107,7 +107,6 @@
                 android:id="@+id/btnClose"
                 android:layout_width="69dp"
                 android:layout_height="48dp"
-
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.915"
@@ -118,9 +117,10 @@
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraintLayout2"
             android:layout_width="400dp"
-            android:layout_height="395dp"
 
+            android:layout_height="395dp"
             android:background="@drawable/bg_date"
             android:padding="15dp"
             app:layout_constraintBottom_toBottomOf="parent"
