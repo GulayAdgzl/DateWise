@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">DateWise</string>
+
+    <string name="notification_title">Hatırlatıcı</string>
+    <string name="notification_subtitle">Hadi Kutla</string>
+    <string name="select_emoji_with_emoji_format">%1$s Emoji Seç</string>
+    <string name="notification_schedule_title">Bildirimi planla:\u00a0</string>
+    <string name="notification_schedule_pattern">dd.MM.yy \u00B7 HH:mm</string>
+    <string name="fri">Arkadaşının Adı</string>
+    <string name="notification_schedule_error">
+        Program bildirimi: Yanlış Tarih ve Saat</string>
+    <string name="emoji_btn">☺</string>
+</resources>

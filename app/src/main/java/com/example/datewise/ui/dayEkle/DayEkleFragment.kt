@@ -2,7 +2,11 @@ package com.example.datewise.ui.dayEkle
 
 
 import android.Manifest.permission.POST_NOTIFICATIONS
+import android.app.PendingIntent
+import android.content.Context
+import android.content.Intent
 import android.content.pm.PackageManager.PERMISSION_GRANTED
+import android.graphics.BitmapFactory
 import android.os.Build.VERSION.SDK_INT
 import android.os.Build.VERSION_CODES.TIRAMISU
 import android.os.Bundle
@@ -10,7 +14,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.activity.result.ActivityResultLauncher
+import androidx.core.app.NotificationCompat
 import androidx.core.content.ContextCompat.checkSelfPermission
+import androidx.core.content.ContextCompat.getSystemService
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.setFragmentResultListener
@@ -46,6 +52,7 @@ class DayEkleFragment : Fragment() {
 
     private lateinit var checkNotificationPermission: ActivityResultLauncher<String>
     private var isPermission = false
+    private val CHANNEL_ID="channel_id_datewise"
 
 
     private var emoji:String=String.EMPTY
@@ -105,9 +112,6 @@ class DayEkleFragment : Fragment() {
                             name = day,
                             dayname = dayName,
                             emoji = dayEmoji,
-
-
-
                         )
                     )
 
@@ -127,13 +131,16 @@ class DayEkleFragment : Fragment() {
                     if(customTime>currentTime){
                         val data=Data.Builder().putInt(NOTIFICATION_ID,0).build()
                         val delay=customTime-currentTime
-                        scheduleNotification(delay,data)
                         val titleNotificationSchedule = getString(R.string.notification_schedule_title)
                         val patternNotificationSchedule = getString(R.string.notification_schedule_pattern)
+
+                        scheduleNotification(delay,data)
+
                         make(
                             binding.co,
                             titleNotificationSchedule + SimpleDateFormat(
                                 patternNotificationSchedule, getDefault()
+
                             ).format(customCalendar.time).toString(),
                             LENGTH_LONG
                         ).show()

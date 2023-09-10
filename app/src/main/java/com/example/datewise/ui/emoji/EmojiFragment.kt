@@ -1,5 +1,6 @@
 package com.example.datewise.ui.emoji
 
+import android.app.AlertDialog
 import android.app.Dialog
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -7,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.view.WindowManager
 import androidx.core.os.bundleOf
+import androidx.fragment.app.DialogFragment
 import androidx.fragment.app.setFragmentResult
 import androidx.navigation.fragment.findNavController
 import com.example.datewise.R
@@ -24,18 +26,19 @@ class EmojiFragment : BottomSheetDialogFragment(),OnEmojiClickListener,
     lateinit var emojiView:EmojiView
 
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
+        // val dialog=BottomSheetDialog(requireContext(),theme)
         val dialog=BottomSheetDialog(requireContext(),theme)
-        dialog.setOnShowListener {
-            val bottomSheetDialog=it as BottomSheetDialog
-            val parentLayout=bottomSheetDialog.findViewById<View>(com.google.android.material.R.id.design_bottom_sheet)
-            parentLayout?.let{
-                val behavior=BottomSheetBehavior.from(it)
-                setupFullHeight(it)
-                behavior.state=BottomSheetBehavior.STATE_EXPANDED
-            }
-        }
-        return dialog
-    }
+         dialog.setOnShowListener {
+             val bottomSheetDialog=it as BottomSheetDialog
+             val parentLayout=bottomSheetDialog.findViewById<View>(com.google.android.material.R.id.design_bottom_sheet)
+             parentLayout?.let{
+                 val behavior=BottomSheetBehavior.from(it)
+                 setupFullHeight(it)
+                 behavior.state=BottomSheetBehavior.STATE_EXPANDED
+             }
+         }
+         return dialog
+     }
 
     private fun setupFullHeight(bottomSheet:View){
         val layoutParams=bottomSheet.layoutParams
