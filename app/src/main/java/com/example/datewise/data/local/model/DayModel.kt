@@ -20,7 +20,6 @@ data class DayModel(
     val name:String,
     @ColumnInfo(name = "day_dayName")
     val dayname:String,
-    //@ColumnInfo(name = "day_date")
-    //val date: String
+
 
     ):Serializable

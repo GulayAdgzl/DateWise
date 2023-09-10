@@ -3,19 +3,24 @@ package com.example.datewise.ui.viewmodel
 
 
 import android.app.Application
-import androidx.annotation.StringRes
+import androidx.lifecycle.asLiveData
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import com.example.datewise.data.local.dao.DayDAO
-import com.example.datewise.data.local.database.AppDatabase
 import com.example.datewise.data.local.model.DayModel
 import com.example.datewise.data.local.repository.DayRepository
-import kotlinx.coroutines.channels.Channel
-import kotlinx.coroutines.flow.receiveAsFlow
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
- class DayViewModel (val db: DayDAO, application: Application):AndroidViewModel(application){
+ class DayViewModel (
+     val db: DayDAO,
+
+     application: Application):AndroidViewModel(application){
+     //dataStore
+
+
+
 
      private val repository: DayRepository
      var dayList = MutableLiveData<List<DayModel>>()

@@ -3,8 +3,12 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/hkn/AndroidStudioProjects/DateWise/app/src/main/res/drawable-v24/bg_date.xml" value="0.111" />
         <entry key="..\:/Users/hkn/AndroidStudioProjects/DateWise/app/src/main/res/drawable-v24/ekle_effect.xml" value="0.113" />
+        <entry key="..\:/Users/hkn/AndroidStudioProjects/DateWise/app/src/main/res/drawable-v24/ic_baseline_date_range_24.xml" value="0.111" />
+        <entry key="..\:/Users/hkn/AndroidStudioProjects/DateWise/app/src/main/res/drawable-v24/thumbfalse.xml" value="0.1075" />
         <entry key="..\:/Users/hkn/AndroidStudioProjects/DateWise/app/src/main/res/drawable/background.xml" value="0.1515" />
+        <entry key="..\:/Users/hkn/AndroidStudioProjects/DateWise/app/src/main/res/drawable/bg_raw.xml" value="0.111" />
         <entry key="..\:/Users/hkn/AndroidStudioProjects/DateWise/app/src/main/res/drawable/black.xml" value="0.1" />
         <entry key="..\:/Users/hkn/AndroidStudioProjects/DateWise/app/src/main/res/drawable/circle_gradient.xml" value="0.133" />
         <entry key="..\:/Users/hkn/AndroidStudioProjects/DateWise/app/src/main/res/drawable/effect.xml" value="0.203" />
@@ -15,7 +19,11 @@
         <entry key="..\:/Users/hkn/AndroidStudioProjects/DateWise/app/src/main/res/drawable/ic_marked_date.xml" value="0.133" />
         <entry key="..\:/Users/hkn/AndroidStudioProjects/DateWise/app/src/main/res/drawable/profile.xml" value="0.183" />
         <entry key="..\:/Users/hkn/AndroidStudioProjects/DateWise/app/src/main/res/drawable/round_image_view.xml" value="0.1515" />
+        <entry key="..\:/Users/hkn/AndroidStudioProjects/DateWise/app/src/main/res/drawable/thumb.xml" value="0.1" />
+        <entry key="..\:/Users/hkn/AndroidStudioProjects/DateWise/app/src/main/res/drawable/thumbfalse.xml" value="0.1075" />
+        <entry key="..\:/Users/hkn/AndroidStudioProjects/DateWise/app/src/main/res/drawable/thumbtrue.xml" value="0.107" />
         <entry key="..\:/Users/hkn/AndroidStudioProjects/DateWise/app/src/main/res/drawable/top_background_gradiunt.xml" value="0.14" />
+        <entry key="..\:/Users/hkn/AndroidStudioProjects/DateWise/app/src/main/res/drawable/track.xml" value="0.1" />
         <entry key="..\:/Users/hkn/AndroidStudioProjects/DateWise/app/src/main/res/drawable/white.xml" value="0.1" />
         <entry key="..\:/Users/hkn/AndroidStudioProjects/DateWise/app/src/main/res/layout-large/activity_main.xml.xml" value="0.264" />
         <entry key="..\:/Users/hkn/AndroidStudioProjects/DateWise/app/src/main/res/layout-large/fragment_anasayfa.xml" value="0.190625" />
@@ -26,15 +34,17 @@
         <entry key="..\:/Users/hkn/AndroidStudioProjects/DateWise/app/src/main/res/layout/activity_main.xml" value="0.22826086956521738" />
         <entry key="..\:/Users/hkn/AndroidStudioProjects/DateWise/app/src/main/res/layout/alarm_notification.xml" value="0.1" />
         <entry key="..\:/Users/hkn/AndroidStudioProjects/DateWise/app/src/main/res/layout/anasayfa_fragment.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/hkn/AndroidStudioProjects/DateWise/app/src/main/res/layout/calendar_with_custom_row.xml" value="0.20104166666666667" />
         <entry key="..\:/Users/hkn/AndroidStudioProjects/DateWise/app/src/main/res/layout/card_ekle.xml" value="0.190625" />
+        <entry key="..\:/Users/hkn/AndroidStudioProjects/DateWise/app/src/main/res/layout/deneme.xml" value="0.20104166666666667" />
         <entry key="..\:/Users/hkn/AndroidStudioProjects/DateWise/app/src/main/res/layout/event_bubble.xml" value="0.264" />
-        <entry key="..\:/Users/hkn/AndroidStudioProjects/DateWise/app/src/main/res/layout/fragment_anasayfa.xml" value="0.2" />
-        <entry key="..\:/Users/hkn/AndroidStudioProjects/DateWise/app/src/main/res/layout/fragment_day_ekle.xml" value="0.2" />
+        <entry key="..\:/Users/hkn/AndroidStudioProjects/DateWise/app/src/main/res/layout/fragment_anasayfa.xml" value="0.176" />
+        <entry key="..\:/Users/hkn/AndroidStudioProjects/DateWise/app/src/main/res/layout/fragment_day_ekle.xml" value="0.136" />
         <entry key="..\:/Users/hkn/AndroidStudioProjects/DateWise/app/src/main/res/layout/fragment_day_guncelle.xml" value="0.12360688956433637" />
         <entry key="..\:/Users/hkn/AndroidStudioProjects/DateWise/app/src/main/res/layout/fragment_emoji.xml" value="0.1" />
         <entry key="..\:/Users/hkn/AndroidStudioProjects/DateWise/app/src/main/res/layout/fragment_notification.xml" value="0.20208333333333334" />
         <entry key="..\:/Users/hkn/AndroidStudioProjects/DateWise/app/src/main/res/layout/fragment_reminder.xml" value="0.264" />
-        <entry key="..\:/Users/hkn/AndroidStudioProjects/DateWise/app/src/main/res/layout/item_card.xml" value="0.264" />
+        <entry key="..\:/Users/hkn/AndroidStudioProjects/DateWise/app/src/main/res/layout/item_card.xml" value="0.2" />
         <entry key="..\:/Users/hkn/AndroidStudioProjects/DateWise/app/src/main/res/layout/item_reminder.xml" value="0.253125" />
       </map>
     </option>

@@ -7,6 +7,7 @@
     <string name="select_emoji_with_emoji_format">%1$s Select emoji</string>
     <string name="notification_schedule_title">Schedule notification:\u00a0</string>
     <string name="notification_schedule_pattern">dd.MM.yy \u00B7 HH:mm</string>
+    <string name="fri">Friends Name</string>
     <string name="notification_schedule_error">
         Schedule notification: Incorrect Date and Time</string>
 </resources>

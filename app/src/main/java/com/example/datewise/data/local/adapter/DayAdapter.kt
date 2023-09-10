@@ -37,7 +37,10 @@ class DayAdapter(private var dayList:List<DayModel?>):ListAdapter<DayModel,DayAd
                // textViewAd.text=day?.name
                 //textViewAd.visibility=View.GONE
                //??????????????????
-                emojiBtn.text=day?.emoji
+                emojiBtn.text=day.emoji
+                textName.text=day.name
+
+
 
 
 

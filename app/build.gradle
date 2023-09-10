@@ -42,7 +42,7 @@ android {
 
 dependencies {
 
-    implementation 'androidx.core:core-ktx:1.7.0'
+    implementation 'androidx.core:core-ktx:1.10.1'
     implementation 'androidx.appcompat:appcompat:1.6.1'
     implementation 'com.google.android.material:material:1.9.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
@@ -65,9 +65,23 @@ dependencies {
 
 
 
-    //workmanager
+    //workman
+   
     implementation "androidx.work:work-runtime-ktx:2.8.1"
 
+//CalendarView
+    //implementation 'com.applandeo:material-calendar-view:1.7.0'
+
+    //Lottie
+    implementation 'com.airbnb.android:lottie:3.4.0'
+
+
+    //dataStore
+    implementation"androidx.datastore:datastore-preferences:1.0.0"
+
+
+// LiveData
+    implementation "androidx.lifecycle:lifecycle-livedata-ktx:2.6.1"
 
 
 }

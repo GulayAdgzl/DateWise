@@ -15,6 +15,7 @@
         tools:context=".ui.anasayfa.AnasayfaFragment">
 
 
+
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/buttonYeniDay"
             android:layout_width="wrap_content"
@@ -43,6 +44,10 @@
             app:layout_constraintVertical_bias="0.712"
             app:srcCompat="@drawable/bell" />
 
+
+
+
+
         <TextView
             android:id="@+id/textMonth"
             android:layout_width="wrap_content"
@@ -68,8 +73,8 @@
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rvday"
-                android:layout_width="408dp"
-                android:layout_height="276dp"
+                android:layout_width="407dp"
+                android:layout_height="248dp"
                 android:adapter="@{adapter}"
                 app:layout_constraintBottom_toTopOf="@+id/changeDate"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -79,15 +84,19 @@
                 app:layout_constraintVertical_bias="0.0"
                 tools:listitem="@layout/item_card" />
 
-            <DatePicker
+            <CalendarView
                 android:id="@+id/changeDate"
-                android:layout_width="402dp"
-                android:layout_height="291dp"
+                android:layout_width="395dp"
+                android:layout_height="327dp"
+                android:background="@drawable/circle_gradient"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent" />
 
+
         </androidx.constraintlayout.widget.ConstraintLayout>
+
+
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

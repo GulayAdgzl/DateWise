@@ -2,28 +2,22 @@ package com.example.datewise.ui.dayEkle
 
 
 import android.Manifest.permission.POST_NOTIFICATIONS
-import android.os.Build.VERSION.SDK_INT
-import android.os.Bundle
-import java.text.SimpleDateFormat
-import java.util.concurrent.TimeUnit.MILLISECONDS
-import androidx.work.ExistingWorkPolicy.REPLACE
-import android.view.LayoutInflater
 import android.content.pm.PackageManager.PERMISSION_GRANTED
-import android.view.View
-import com.google.android.material.snackbar.Snackbar.LENGTH_LONG
-import androidx.core.content.ContextCompat.checkSelfPermission
+import android.os.Build.VERSION.SDK_INT
 import android.os.Build.VERSION_CODES.TIRAMISU
-import java.util.Locale.getDefault
-import com.google.android.material.snackbar.Snackbar.make
+import android.os.Bundle
+import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import androidx.activity.result.ActivityResultLauncher
-import androidx.activity.result.contract.ActivityResultContracts
+import androidx.core.content.ContextCompat.checkSelfPermission
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.setFragmentResultListener
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.work.*
+import androidx.work.ExistingWorkPolicy.REPLACE
 import com.example.datewise.R
 import com.example.datewise.data.local.database.AppDatabase
 import com.example.datewise.data.local.model.DayModel
@@ -36,8 +30,13 @@ import com.example.datewise.ui.notification.NotificationWorker.Companion.NOTIFIC
 import com.example.datewise.ui.viewmodel.DayViewModel
 import com.example.datewise.ui.viewmodel.DayViewModelFactory
 import com.google.android.material.snackbar.Snackbar
+import com.google.android.material.snackbar.Snackbar.LENGTH_LONG
+import com.google.android.material.snackbar.Snackbar.make
 import java.lang.System.currentTimeMillis
+import java.text.SimpleDateFormat
 import java.util.*
+import java.util.Locale.getDefault
+import java.util.concurrent.TimeUnit.MILLISECONDS
 
 class DayEkleFragment : Fragment() {
     private lateinit var binding: FragmentDayEkleBinding
@@ -98,12 +97,17 @@ class DayEkleFragment : Fragment() {
                     val dayName = editTextDayName.text.toString()
                     val dayEmoji = emojiBtn.text.toString()
 
+                        //.dayOfMonth.toString()
+
 
                     dayViewModel.ekleday(
                         DayModel(
                             name = day,
                             dayname = dayName,
-                            emoji = dayEmoji
+                            emoji = dayEmoji,
+
+
+
                         )
                     )
 
@@ -116,6 +120,8 @@ class DayEkleFragment : Fragment() {
                         binding.d.hour,
                         binding.d.minute, 0
                     )
+
+
                     val customTime = customCalendar.timeInMillis
                     val currentTime = currentTimeMillis()
                     if(customTime>currentTime){
@@ -142,6 +148,7 @@ class DayEkleFragment : Fragment() {
                 }
 
 
+
                 findNavController().navigate(R.id.action_dayEkleFragment_to_anasayfaFragment)
 
             }
@@ -153,6 +160,9 @@ class DayEkleFragment : Fragment() {
                     val day = editTextName.text.toString()
                     val dayName = editTextDayName.text.toString()
                     val dayEmoji = emojiBtn.text.toString()
+                   // val dayDate=(scale.dayOfMonth+scale.year).toString()
+
+
 
                     if (day.isEmpty() && dayName.isEmpty()) {
                         // İkisi de boş ise "Boş" Snackbar mesajı göster
@@ -165,6 +175,8 @@ class DayEkleFragment : Fragment() {
                                 name = day,
                                 dayname = dayName,
                                 emoji = dayEmoji,
+
+
                             )
                         )
 
@@ -218,3 +230,4 @@ class DayEkleFragment : Fragment() {
 
 
 }
+

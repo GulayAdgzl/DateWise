@@ -1,14 +1,13 @@
 package com.example.datewise.ui.anasayfa
-import android.content.res.Resources
+
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.animation.AnimationUtils
-import android.widget.DatePicker
-import androidx.core.content.ContextCompat
+import androidx.appcompat.app.AppCompatDelegate
 import androidx.databinding.DataBindingUtil
+import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -19,10 +18,8 @@ import com.example.datewise.data.local.model.DayModel
 import com.example.datewise.databinding.FragmentAnasayfaBinding
 import com.example.datewise.ui.viewmodel.DayViewModel
 import com.example.datewise.ui.viewmodel.DayViewModelFactory
-import com.google.android.material.color.utilities.MaterialDynamicColors.background
 import com.google.android.material.snackbar.Snackbar
 import java.text.SimpleDateFormat
-import java.time.LocalDate
 import java.util.*
 
 
@@ -32,6 +29,8 @@ class AnasayfaFragment : Fragment() {
     private lateinit var dayDB: AppDatabase
     private lateinit var dayViewModel: DayViewModel
      private lateinit var adapter: DayAdapter
+
+
 
 
 
@@ -46,7 +45,6 @@ class AnasayfaFragment : Fragment() {
         //ImageView
 
         //binding.profil.setBackgroundColor(R.drawable.round_image_view)
-
 
 
         val application= requireNotNull(this.activity).application
@@ -85,8 +83,7 @@ class AnasayfaFragment : Fragment() {
         tumDayleriGoster()
 
         binding.apply {
-
-
+            
            //val month= binding.changeDate.month.toString()
           // binding.textMonth.text=month
             // Şu anki tarihi al
@@ -94,7 +91,15 @@ class AnasayfaFragment : Fragment() {
             val currentDate = calendar.time
 
 
+
+
+
+
+
+
             //deneme
+
+
            /* val datePicker = binding.changeDate
 
             val markedDates= mutableListOf<Calendar>()
@@ -153,6 +158,9 @@ class AnasayfaFragment : Fragment() {
 
     }
 
+
+
+
     fun tumDayleriGoster() {
         dayViewModel.dayList.observe(viewLifecycleOwner) { daysList ->
             dayList = daysList
@@ -172,6 +180,8 @@ class AnasayfaFragment : Fragment() {
         }
 
     }
+
+
 
 
 }

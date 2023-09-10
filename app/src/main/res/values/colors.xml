@@ -8,4 +8,11 @@
     <color name="black">#FF000000</color>
     <color name="main_background">#19191b</color>
     <color name="white">#FFFFFFFF</color>
+
+    <color name="SpaceCadet">#1D2D50</color>
+    <color name="Indigo">#133B5C</color>
+    <color name="SandyTan">#FCDAB7</color>
+    <color name="transpar">#00FF0000</color>
+    <color name="tr">#40000000</color>
+
 </resources>

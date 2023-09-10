@@ -4,7 +4,7 @@ import androidx.lifecycle.MutableLiveData
 import com.example.datewise.data.local.dao.DayDAO
 import com.example.datewise.data.local.model.DayModel
 
-class DayRepository (private val dayDAO:DayDAO){
+class DayRepository (private val dayDAO: DayDAO){
     val dayList=MutableLiveData<List<DayModel>>()
 
     suspend fun getTumDayList():List<DayModel>{
