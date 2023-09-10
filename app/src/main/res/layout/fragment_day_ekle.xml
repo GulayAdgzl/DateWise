@@ -112,7 +112,7 @@
                 app:layout_constraintHorizontal_bias="0.915"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/cancel" />
+                app:srcCompat="@drawable/cross" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -127,12 +127,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent">
 
-            <ScrollView
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent">
+
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
@@ -140,32 +135,30 @@
 
                     <DatePicker
                         android:id="@+id/scale"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_width="196dp"
+                        android:layout_height="363dp"
                         android:background="@drawable/circle_gradient"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintHorizontal_bias="0.0"
                         app:layout_constraintStart_toStartOf="parent"
 
-                        />
+                        app:layout_constraintTop_toTopOf="parent" />
 
                     <com.example.datewise.data.local.custom.TimePickerCustom
                         android:id="@+id/d"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:background="@drawable/circle_gradient"
+                        android:layout_width="166dp"
+                        android:layout_height="358dp"
+                        android:background="@drawable/circle_gradient_two"
                         android:timePickerMode="spinner"
-
-                        app:layout_constraintHorizontal_bias="0.993"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.96"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/scale"
-
-                        />
+                        app:layout_constraintTop_toTopOf="parent" />
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
-            </ScrollView>
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>
