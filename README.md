@@ -1,66 +1,52 @@
+# Date Wise - Personalized Event Reminder App 📅
 
-# Date Wise
+Date Wise is a personalized event reminder application that ensures users never miss important occasions. Users can easily add their friends' birthdays, anniversaries, and other special events, receiving timely reminders to keep their loved ones in mind.
 
-My app idea is a personalized event reminder application where users can add their friends' birthdays and other special occasions. The app will send timely notifications to users, reminding them of the upcoming events of their friends and loved ones. With this user-friendly and thoughtful app, people will never miss an important birthday or celebration again. The app will allow users to easily manage their event list, set custom reminders, and even send personalized greetings to their friends directly from the platform. Whether it's a birthday, anniversary, or any other significant milestone, our app will help users stay connected and make their loved ones feel cherished on their special days.
+## App Features 🚀
 
-# Architecture
-Your application aims to be a personalized event reminder app, allowing users to add their friends' birthdays and other special occasions. Users will receive timely notifications for upcoming events, ensuring they never miss important celebrations. The app will utilize the Model-View-ViewModel (MVVM) architecture, offering a clean and scalable design for different components.
+- **Personalized Notifications:** Receive customized reminders for upcoming events, making sure you never forget to celebrate with friends and family.
 
- ## Package Structure:
- ### Core (Base):
+- **Event Management:** Easily add, edit, or remove events from your list, keeping your calendar up-to-date.
 
-🟠This package will include all common classes used throughout the application.
+- **Custom Reminders:** Set personalized reminders for each event, so you're always prepared to celebrate.
 
-🟠It will contain extensions, deciders, utilities, and base classes that can be shared.
+- **Direct Greetings:** Send heartfelt messages and greetings to your friends directly from the app, making their day even more special.
 
-### Data:
-🟢The Data package will handle event data, including response models, data sources, and API methods.
+## Architecture 🏛️
 
-🟢This package should focus solely on data processing and avoid including business logic.
+Date Wise follows the Model-View-ViewModel (MVVM) architecture, providing a structured and scalable design for various components.
 
-### UI (User Interface):
+### Package Structure 📦
 
-🟣 Each feature will be represented as a separate module, and this package will specifically represent the event reminder functionality.
+- **Core (Base):** Contains common classes, extensions, utilities, and base classes shared throughout the app.
 
-🟣 It includes the following components:
+- **Data:** Manages event data using Room database, including entities, DAOs (Data Access Objects), and repository patterns. Focuses on data processing without including business logic.
 
-   🟤Fragments: Representing different screens and user interfaces for adding, managing, and viewing event details.
-      
-   🟤🟤View Models: Responsible for managing business logic and data manipulation for UI components.
-      
-   🟤🟤🟤Domains: Defining domain models specific to the event reminder feature.
-      
-   🟤🟤🟤🟤Mappers: Includes classes used for data mapping between different layers, for instance, mapping response models to domain models.
-   
-   🟤🟤🟤🟤🟤UI Models: Special models used for displaying data in the UI.
-### Di (Dependency Injection):
-   ◍This package manages dependency injection and is preferably located outside the core package for better visibility.
-   
-  ◍It facilitates providing and managing dependencies throughout the app, enhancing modularity and testability.
-  
-### Ui-Component (User Interface Components):
+- **UI (User Interface):** Organized by features, this package represents the event reminder functionality. It includes fragments, view models, domains, mappers, and UI models.
 
-✤ This package contains common view components used in different parts of the app.
+- **Di (Dependency Injection):** Manages dependency injection, enhancing modularity and testability, and located outside the core package for better visibility.
 
-✤ By centralizing these components, you can reuse them across multiple features, promoting code reusability and easier maintenance.
+- **Ui-Component (User Interface Components):** Contains reusable view components used across different parts of the app, promoting code reusability and easier maintenance.
 
+## Built With 🛠️
 
-The application will consist of a single root activity responsible for managing different fragments using the Navigation Component. Each feature, such as the event reminder functionality, will be organized under the "UI" package following the MVVM architecture. The "Data" package will handle data management, while the "Core" package will contain shared classes and utilities. The "Di" package will manage dependency injection, and the "Ui-Component" package will host reusable view components.
-
-By structuring your application in this manner and utilizing the MVVM architecture, you will achieve a well-organized and maintainable codebase. This approach will also make it easier to add new features and improve the application over time.
-
-
-
-# Build With  🛠
-
-| Library             | comment                                                                |
+| Library             | Description                                                        |
 | ----------------- | ------------------------------------------------------------------ |
-| [Kotlin](https://kotlinlang.org/) | First class and official programming language for Android development. |
-| [Coroutines](https://tr.search.yahoo.com/search?fr=mcafee&type=E210TR91105G0&p=Coroutines) | For asynchronous and more.|
-| [Android Architecture Components](https://tr.search.yahoo.com/search?fr=mcafee&type=E210TR91105G0&p=Android+Architecture+Components) |  Collection of libraries that help you design robust, testable, and maintainable apps. |
-|➡️[LiveData](https://developer.android.com/topic/libraries/architecture/livedata) |Data objects that notify views when the underlying database changes.
- ➡️ [ViewModel](https://developer.android.com/topic/libraries/architecture/viewmodel)|  Stores UI-related data that isn't destroyed on UI changes.
- ➡️ [ViewBinding](https://developer.android.com/topic/libraries/view-binding) | Generates a binding class for each XML layout file present in that module and allows you to more easily write code that interacts with views.
- ➡️ [Room](https://developer.android.com/topic/libraries/architecture/room) | SQLite object mapping library.
+| [Kotlin](https://kotlinlang.org/) | The first-class and official programming language for Android development. |
+| [Coroutines](https://developer.android.com/kotlin/coroutines) | For handling asynchronous operations and more. |
+| [Android Architecture Components](https://developer.android.com/topic/libraries/architecture) | A collection of libraries for designing robust, testable, and maintainable apps. |
+| ➡️ [LiveData](https://developer.android.com/topic/libraries/architecture/livedata) | Data objects that notify views when the underlying database changes.
+| ➡️ [ViewModel](https://developer.android.com/topic/libraries/architecture/viewmodel)| Stores UI-related data that survives configuration changes.
+| ➡️ [ViewBinding](https://developer.android.com/topic/libraries/view-binding) | Generates a binding class for each XML layout file, simplifying view interactions.
+| ➡️ [Room](https://developer.android.com/training/data-storage/room) | SQLite object mapping library for local data storage.
+| [WorkManager](https://developer.android.com/topic/libraries/architecture/workmanager) | Facilitates scheduling background tasks and managing complex work chains.
+
+With Date Wise, you'll stay connected with your loved ones, never missing an opportunity to make their special days even more memorable. Enjoy seamless event management and personalized notifications in this user-friendly app. 🎉
+
+## Get Started 🚀
+
+To get started with Date Wise, please follow the installation instructions in our [wiki](link-to-wiki). Happy event planning!
+
+ 
 
 
