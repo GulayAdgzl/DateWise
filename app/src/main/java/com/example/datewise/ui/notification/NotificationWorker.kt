@@ -54,7 +54,7 @@ class NotificationWorker(appContext: Context,workerParams:WorkerParameters):
         val notificationManager =
             applicationContext.getSystemService(NOTIFICATION_SERVICE) as NotificationManager
 
-        val bitmap = applicationContext.vectorToBitmap(R.drawable.black)
+        val bitmap = applicationContext.vectorToBitmap(R.drawable.check)
 
         val titleNotification = applicationContext.getString(R.string.notification_title)
         val subtitleNotification = applicationContext.getString(R.string.notification_subtitle)
@@ -64,9 +64,10 @@ class NotificationWorker(appContext: Context,workerParams:WorkerParameters):
             getActivity(applicationContext, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT)
         }
         val notification = NotificationCompat.Builder(applicationContext, NOTIFICATION_CHANNEL)
-            .setLargeIcon(bitmap).setSmallIcon(R.drawable.white)
+            .setLargeIcon(bitmap).setSmallIcon(R.drawable.notification)
             .setContentTitle(titleNotification).setContentText(subtitleNotification)
             .setDefaults(DEFAULT_ALL).setContentIntent(pendingIntent).setAutoCancel(true)
+
 
         notification.priority = PRIORITY_MAX
 

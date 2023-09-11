@@ -31,6 +31,7 @@ import com.example.datewise.data.util.EMPTY
 import com.example.datewise.databinding.FragmentDayEkleBinding
 import com.example.datewise.ui.emoji.EmojiFragment
 import com.example.datewise.ui.notification.NotificationWorker
+
 import com.example.datewise.ui.notification.NotificationWorker.Companion.NOTIFICATION_ID
 import com.example.datewise.ui.notification.NotificationWorker.Companion.NOTIFICATION_WORK
 import com.example.datewise.ui.viewmodel.DayViewModel
@@ -135,6 +136,8 @@ class DayEkleFragment : Fragment() {
                         val patternNotificationSchedule = getString(R.string.notification_schedule_pattern)
 
                         scheduleNotification(delay,data)
+                        /////
+
 
                         make(
                             binding.co,
