@@ -20,7 +20,7 @@ Date Wise follows the Model-View-ViewModel (MVVM) architecture, providing a stru
 
 - **Core (Base):** Contains common classes, extensions, utilities, and base classes shared throughout the app.
 
-- **Data:** Handles event data, including response models, data sources, and API methods. Focuses on data processing without including business logic.
+- **Data:** Manages event data using Room database, including entities, DAOs (Data Access Objects), and repository patterns. Focuses on data processing without including business logic.
 
 - **UI (User Interface):** Organized by features, this package represents the event reminder functionality. It includes fragments, view models, domains, mappers, and UI models.
 
