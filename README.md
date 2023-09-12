@@ -45,7 +45,13 @@ With Date Wise, you'll stay connected with your loved ones, never missing an opp
 
 ## Get Started 🚀
 
-To get started with Date Wise, please follow the installation instructions in our [wiki](link-to-wiki). Happy event planning!
+
+![Neon Yeni Sezon Moda İnstagram Hikayesi (5)](https://github.com/GulayAdgzl/DateWise/assets/44726684/f398d43e-e435-4469-9e18-0211bafd7c31)
+
+
+
+
+
 
  
 
