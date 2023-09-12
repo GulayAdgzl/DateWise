@@ -93,9 +93,7 @@ class AnasayfaFragment : Fragment() {
 
 
             //
-            binding.buttonHatRlatC.setOnClickListener {
-                findNavController().navigate(R.id.action_anasayfaFragment_to_notificationRecyclerViewFragment)
-            }
+
 
 
 

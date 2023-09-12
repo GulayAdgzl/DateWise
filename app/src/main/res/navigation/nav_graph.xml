@@ -14,9 +14,7 @@
         <action
             android:id="@+id/action_anasayfaFragment_to_dayEkleFragment"
             app:destination="@id/dayEkleFragment" />
-        <action
-            android:id="@+id/action_anasayfaFragment_to_notificationRecyclerViewFragment"
-            app:destination="@id/notificationRecyclerViewFragment" />
+
 
 
     </fragment>
