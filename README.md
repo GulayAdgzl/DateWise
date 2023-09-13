@@ -50,6 +50,7 @@ With Date Wise, you'll stay connected with your loved ones, never missing an opp
 
 
 
+![DATE WİSE](https://github.com/GulayAdgzl/DateWise/assets/44726684/51589502-f97b-4a0f-b878-bea124b3666b)
 
 
 
