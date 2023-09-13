@@ -3,20 +3,28 @@ package com.example.datewise.data.local.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import android.widget.ImageView
+
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.Navigation
+import androidx.navigation.fragment.NavHostFragment.Companion.findNavController
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
+import com.example.datewise.R
 import com.example.datewise.data.local.DiffUtil.DateWiseDiffUtilCallBack
 import com.example.datewise.data.local.model.DayModel
 import com.example.datewise.databinding.ItemCardBinding
 import com.example.datewise.ui.anasayfa.AnasayfaFragmentDirections
+import com.example.datewise.ui.viewmodel.DayViewModel
 
 
 class DayAdapter(private var dayList:List<DayModel?>):ListAdapter<DayModel,DayAdapter.CardHolder>(DateWiseDiffUtilCallBack())
     //RecyclerView.Adapter<DayAdapter.CardHolder>()
 {
-    class CardHolder( val itemCardBinding: ItemCardBinding):RecyclerView.ViewHolder(itemCardBinding.root)//difften sonra{
 
+
+    class CardHolder( val itemCardBinding: ItemCardBinding):RecyclerView.ViewHolder(itemCardBinding.root)
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CardHolder {
@@ -37,19 +45,16 @@ class DayAdapter(private var dayList:List<DayModel?>):ListAdapter<DayModel,DayAd
                // textViewAd.text=day?.name
                 //textViewAd.visibility=View.GONE
                //??????????????????
+
                 emojiBtn.text=day.emoji
                 textName.text=day.name
-
-
-
-
-
-
+                textdayName.text=day.dayname
 
 
 
 
             }
+
             itemCard.setOnClickListener { button ->
                 day?.let {
 
@@ -57,6 +62,8 @@ class DayAdapter(private var dayList:List<DayModel?>):ListAdapter<DayModel,DayAd
                         //.actionAnasayfaFragmentToDayEkleFragment(dayList)
 
                     Navigation.findNavController(button).navigate(anasayfaToDetay)
+
+
                 }
             }
         }

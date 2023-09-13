@@ -9,6 +9,8 @@ import androidx.appcompat.app.AppCompatDelegate
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.Navigation
+import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.datewise.R
@@ -29,9 +31,6 @@ class AnasayfaFragment : Fragment() {
     private lateinit var dayDB: AppDatabase
     private lateinit var dayViewModel: DayViewModel
      private lateinit var adapter: DayAdapter
-
-
-
 
 
     //private lateinit var horizontalRecyclerView: RecyclerView
@@ -91,8 +90,6 @@ class AnasayfaFragment : Fragment() {
             val currentDate = calendar.time
 
 
-
-            //
 
 
 

@@ -14,9 +14,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.activity.result.ActivityResultLauncher
-import androidx.core.app.NotificationCompat
 import androidx.core.content.ContextCompat.checkSelfPermission
-import androidx.core.content.ContextCompat.getSystemService
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.setFragmentResultListener
@@ -31,7 +29,6 @@ import com.example.datewise.data.util.EMPTY
 import com.example.datewise.databinding.FragmentDayEkleBinding
 import com.example.datewise.ui.emoji.EmojiFragment
 import com.example.datewise.ui.notification.NotificationWorker
-
 import com.example.datewise.ui.notification.NotificationWorker.Companion.NOTIFICATION_ID
 import com.example.datewise.ui.notification.NotificationWorker.Companion.NOTIFICATION_WORK
 import com.example.datewise.ui.viewmodel.DayViewModel

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="263dp"
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -23,10 +24,11 @@
             android:orientation="vertical"
             app:layout_constraintGuide_begin="150dp" />
 
+
         <TextView
             android:id="@+id/textName"
-            android:layout_width="105dp"
-            android:layout_height="55dp"
+            android:layout_width="82dp"
+            android:layout_height="37dp"
             android:layout_marginHorizontal="10dp"
             android:layout_marginEnd="16dp"
             android:text="@string/fri"
@@ -37,40 +39,52 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="@+id/guideLine"
-            app:layout_constraintTop_toTopOf="parent" />
-
-
-
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/itemCard"
-        app:layout_constraintStart_toStartOf="@id/dataRoot"
-        app:layout_constraintBottom_toBottomOf="@id/dataRoot"
-        android:layout_marginStart="20dp"
-        android:layout_marginBottom="20dp">
-
-        <androidx.appcompat.widget.AppCompatButton
-            android:layout_width="match_parent"
-            android:layout_height="160dp"
-            android:id="@+id/emojiBtn"
-            android:gravity="center"
-            android:textSize="60sp"
-            android:layout_weight="1"
-            android:background="@color/transpar"
-            app:shapeAppearanceOverlay="@style/RoundedImageView"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintVertical_bias="0.158" />
+
+        <TextView
+            android:id="@+id/textdayName"
+            android:layout_width="82dp"
+            android:layout_height="37dp"
+            android:layout_marginHorizontal="10dp"
+            android:layout_marginEnd="16dp"
+            android:text="@string/fri"
+            android:textColor="@color/SandyTan"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"/>
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="@+id/guideLine"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.643" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/itemCard"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginBottom="20dp"
+            app:layout_constraintBottom_toBottomOf="@id/dataRoot"
+            app:layout_constraintStart_toStartOf="@id/dataRoot">
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/emojiBtn"
+                android:layout_width="match_parent"
+                android:layout_height="160dp"
+                android:layout_weight="1"
+                android:background="@color/transpar"
+                android:gravity="center"
+                android:textSize="60sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:shapeAppearanceOverlay="@style/RoundedImageView" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
-
-
-
-
 </androidx.constraintlayout.widget.ConstraintLayout>
